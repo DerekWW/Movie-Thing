@@ -31,9 +31,19 @@ app.use(express.static(path.join('public')));
 //   res.sendStatus(406);
 // });
 
-const home = require('./routes/home');
+const users = require('./routes/users');
+const friends = require('./routes/friends');
+const token = require('./routes/token');
+const userMovies = require('./routes/user_movies');
+const movieSearch = require('./routes/movie_search');
 
-app.use(home);
+
+app.use(users);
+app.use(friends);
+app.use(token);
+app.use(userMovies);
+app.use(movieSearch);
+
 
 
 app.use((_req, res) => {
