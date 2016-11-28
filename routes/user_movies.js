@@ -23,6 +23,36 @@ const authorize = function(req, res, next) {
   });
 };
 
+router.get('/api/user_movies', authorize, (req, res, next) => {
+  knex('saved')
+    .where('user_id', req.token.userId)
+    .andWhere('movie_id', movie.id)
+    .first()
+    .then((exists) => {
+      if (exists) {
+        throw boom.create(400, 'Movie already saved by user!');
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      next(err)
+    });
+})
 
+router.post('/api/user_movies', authorize, (req, res, next) => {
+
+  const { movie } = req.body;
+
+  knex('saved')
+    .where('user_id', req.token.userId)
+
+    .then((movies) => {
+      res.send(movies)
+    })
+    .catch((err) => {
+      console.error(err);
+      next(err)
+    });
+})
 
 module.exports = router;

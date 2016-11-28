@@ -25,18 +25,38 @@ const authorize = function(req, res, next) {
   });
 };
 
-router.get('/api/movie_search/:movieSearch', (req, res, next) => {
+router.get('/api/movie_search/title/:movieSearch', (req, res, next) => {
   const movie = req.params.movieSearch;
 
  axios.get(`https://api-public.guidebox.com/v1.43/US/rKZKTP9f7YPjtoVHxBVqJdHm1KwRoO69/search/movie/title/${movie}/fuzzy`)
   .then((searchResponse)=> {
-    const movies = searchResponse;
+    const movies = searchResponse.data.results;
 
-    res.send(movies.data.results)
+    res.send(movies);
+  })
+  .catch((err) => {
+    next(err);
   })
 
+})
+
+router.get('/api/movie_search/id/:id', (req, res, next) => {
+  const id = req.params.id;
+
+ axios.get(`https://api-public.guidebox.com/v1.43/US/rKZKTP9f7YPjtoVHxBVqJdHm1KwRoO69/movie/${id}`)
+  .then((searchResponse)=> {
+    const movie = searchResponse.data;
+    console.log(movie);
+
+    res.send(movie);
+  })
+  .catch((err) => {
+    next(err);
+  })
 
 })
+
+
 
 
 
