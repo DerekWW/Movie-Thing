@@ -1,10 +1,4 @@
 import React from 'react';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
-
-
 import {GridList, GridTile} from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
@@ -28,60 +22,58 @@ const styles = {
 
 const tilesData = [
   {
-    img: "http://static-api.guidebox.com/111615/thumbnails_movies/-alt--134699-2925730911-9082306111-2807167494-large-400x570-alt-.jpg",
+    img: "http://static-api.guidebox.com/111615/thumbnails_movies_medium/134699-5645093233-3003997687-3038975559-medium-240x342-alt-.jpg",
     title: 'The Lobster',
     author: 'jill111',
   },
   {
-    img: "http://static-api.guidebox.com/120214/thumbnails_movies/-90453-7049092292-8671725690-3540864592-large-400x570.jpg",
+    img: "http://static-api.guidebox.com/120214/thumbnails_movies_medium/90453-8722418346-8380928873-2572392831-medium-240x342.jpg",
     title: 'Divergent',
     author: 'pashminu',
   },
   {
-    img: 'http://static-api.guidebox.com/thumbnails_movies/15460-8710711235-6375054521-2671168456-large-400x570.jpg',
+    img: "http://static-api.guidebox.com/thumbnails_movies_medium/15460-1167945522-2929909541-8695143005-medium-240x342.jpg",
     title: 'Star Trek',
     author: 'Danson67',
   },
   {
-    img: "http://static-api.guidebox.com/060515/thumbnails_movies/-alt--129544-2984774541-4013184891-1719303863-large-400x570-alt-.jpg",
+    img: "http://static-api.guidebox.com/060515/thumbnails_movies_medium/129544-842460520-1909849774-5408064299-medium-240x342-alt-.jpg",
     title: 'The Man from U.N.C.L.E.',
     author: 'fancycrave1',
   },
   {
-    img: "http://static-api.guidebox.com/111615/thumbnails_movies/-alt--135386-4528731071-4263245249-9727598782-large-400x570-alt-.jpg",
+    img: "http://static-api.guidebox.com/111615/thumbnails_movies_medium/135386-6244556075-9267779355-7565353471-medium-240x342-alt-.jpg",
     title: 'Eddie the Eagle',
     author: 'Hans',
   },
   {
-    img: "http://static-api.guidebox.com/022615/thumbnails_movies/-alt--113692-7643839414-5042236778-5719963405-large-400x570-alt-.jpg",
+    img: "http://static-api.guidebox.com/022615/thumbnails_movies_medium/113692-9069906147-8994727600-9852219526-medium-240x342-alt-.jpg",
     title: "Kingsman: The Secret Service",
     author: 'fancycravel',
   },
   {
-    img: "http://static-api.guidebox.com/060515/thumbnails_movies/-alt--117669-2631604853-4055046812-712671169-large-400x570-alt-.jpg",
+    img: "http://static-api.guidebox.com/060515/thumbnails_movies_medium/117669-9549685856-8605314768-7469213241-medium-240x342-alt-.jpg",
     title: 'San Andreas',
     author: 'jill111',
   },
   {
-    img: "http://static-api.guidebox.com/022615/thumbnails_movies/-alt--117053-7581417202-6588549130-390886469-large-400x570-alt-.jpg",
+    img: "http://static-api.guidebox.com/022615/thumbnails_movies_medium/117053-8512426065-556412340-3019736442-medium-240x342-alt-.jpg",
     title: "Avengers: Age of Ultron",
     author: 'BkrmadtyaKarki',
   },
   {
-    img:  "http://static-api.guidebox.com/111615/thumbnails_movies/134971-4897613106-7446062364-6154224863-large-400x570.jpg",
+    img:  "http://static-api.guidebox.com/111615/thumbnails_movies_medium/134971-2023170600-9106984962-3788183821-medium-240x342.jpg",
     title: "Zoolander No.2",
     author: 'BkrmadtyaKarki',
   },
   {
-    img: "http://static-api.guidebox.com/thumbnails_movies/32662-423843926-3491966571-6241333475-large-400x570.jpg",
+    img: "http://static-api.guidebox.com/thumbnails_movies_medium/32662-9669908448-8926530801-1720935707-medium-240x342.jpg",
     title: "Inglourious Basterds",
     author: 'BkrmadtyaKarki',
   },
 ];
 
 const FriendMovies = () => (
-  <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
-
   <div style={styles.root}>
     <GridList style={styles.gridList} cols={2.2} cellHeight='300'>
       {tilesData.map((tile) => (
@@ -97,7 +89,6 @@ const FriendMovies = () => (
       ))}
     </GridList>
   </div>
-  </MuiThemeProvider>
 );
 
 export default FriendMovies;
