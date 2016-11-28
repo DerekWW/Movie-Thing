@@ -12,6 +12,7 @@ const router = express.Router();
 
 router.post('/api/users', (req, res, next) => {
   const { firstName, lastName, email, password } = req.body;
+  console.log('Got this far');
 
   if (!firstName || !firstName.trim()) {
     return next(boom.create(400, 'First Name must not be blank'));

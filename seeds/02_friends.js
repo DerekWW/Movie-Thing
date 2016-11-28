@@ -1,13 +1,23 @@
+/* eslint-disable max-len, camelcase */
 
-exports.seed = function(knex, Promise) {
-  // Deletes ALL existing entries
-  return knex('table_name').del()
-    .then(function () {
-      return Promise.all([
-        // Inserts seed entries
-        knex('table_name').insert({id: 1, colName: 'rowValue1'}),
-        knex('table_name').insert({id: 2, colName: 'rowValue2'}),
-        knex('table_name').insert({id: 3, colName: 'rowValue3'})
-      ]);
+'use strict';
+
+exports.seed = function(knex) {
+  return knex('friends').del()
+    .then(() => {
+      return knex('friends').insert([{
+        id: 1,
+        follower_id: 1,
+        followed_id: 2
+      }, {
+        id: 2,
+        follower_id: 2,
+        followed_id: 1
+      }]);
+    })
+    .then(() => {
+      return knex.raw(
+        "SELECT setval('friends_id_seq', (SELECT MAX(id) FROM friends));"
+      );
     });
 };
