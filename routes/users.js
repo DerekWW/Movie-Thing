@@ -11,7 +11,7 @@ const { camelizeKeys, decamelizeKeys } = require('humps');
 const router = express.Router();
 
 router.post('/api/users', (req, res, next) => {
-  const { firstName, lastName, email, password } = req.body;
+  let { firstName, lastName, email, password } = req.body;
   console.log('Got this far');
 
   if (!firstName || !firstName.trim()) {
@@ -45,7 +45,9 @@ router.post('/api/users', (req, res, next) => {
       return bcrypt.hash(password, 12);
     })
     .then((hashedPassword) => {
-      // const { firstName, lastName } = req.body;
+      firstName = firstName.toLowerCase();
+      lastName = lastName.toLowerCase();
+      email = email.toLowerCase();
       const insertUser = { firstName, lastName, email, hashedPassword };
 
       return knex('users')

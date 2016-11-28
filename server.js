@@ -36,7 +36,7 @@ const friends = require('./routes/friends');
 const token = require('./routes/token');
 const userMovies = require('./routes/user_movies');
 const movieSearch = require('./routes/movie_search');
-const userSeach = require('./routes/user_search');
+const userSearch = require('./routes/user_search');
 
 
 app.use(users);
