@@ -21,9 +21,6 @@ const styles = {
   titleStyle: {
     color: 'rgb(0, 188, 212)',
   },
-  movieDialog: {
-    padding: '5px',
-  },
 };
 
 const tilesData = [
@@ -59,7 +56,7 @@ const tilesData = [
   },
   {
     img: "http://static-api.guidebox.com/060515/thumbnails_movies_medium/119434-6253606346-1172328783-2583201230-medium-240x342-alt-.jpg",
-    title: 'Jurrasic World',
+    title: 'Jurassic World',
     overview: "Steven Spielberg returns to executive produce the long-awaited next installment of his groundbreaking Jurassic Park series, Jurassic World. Colin Trevorrow directs the epic action-adventure based on characters created by Michael Crichton. The screenplay is by Rick Jaffa & Amanda Silver and Trevorrow & Derek Connolly, and the story is by Rick Jaffa & Amanda Silver. Frank Marshall and Patrick Crowley join the team as producers.",
      rating: "PG-13",
   },
@@ -98,19 +95,16 @@ const UserMovies = () => {
 
   return (
       <div style={styles.root}>
-        <GridList style={styles.gridList} cols={2.2} cellHeight='300'>
+        <GridList style={styles.gridList} cols={2.2} cellHeight='342'>
           {tilesData.map((tile) => (
             <GridTile
               key={tile.img}
-              title={tile.title}
-              overview={tile.overview}
-              rating={tile.rating}
+              // title={tile.title}
               titleStyle={styles.titleStyle}
-              // actionIcon={Dialog}
               titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
               onClick={logButtonWorks}
             >
-              <MovieDialog style={styles.movieDialog}
+              <MovieDialog
                 src={tile.img}
                 title={tile.title}
                 rating={tile.rating}
