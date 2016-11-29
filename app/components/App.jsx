@@ -4,7 +4,6 @@ import Footer from './Footer';
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 injectTapEventPlugin();
@@ -12,7 +11,7 @@ injectTapEventPlugin();
 const App = React.createClass({
   render() {
     return (
-      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+      <MuiThemeProvider>
         <div>
           <Header />
           <Main />
