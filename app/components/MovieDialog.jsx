@@ -19,17 +19,19 @@ const MovieDialog = React.createClass ({
     this.setState({open: false});
   },
 
+
+
   render(){
     const actions = [
       <FlatButton
-        label="Cancel"
+        label="Message a Friend"
         primary={true}
+        keyboardFocused={true}
         onTouchTap={this.handleClose}
       />,
       <FlatButton
-        label="Submit"
+        label="Close"
         primary={true}
-        keyboardFocused={true}
         onTouchTap={this.handleClose}
       />,
     ];
@@ -38,14 +40,19 @@ const MovieDialog = React.createClass ({
       <div>
         <img src={this.props.src} onTouchTap={this.handleOpen} />
         <Dialog
-          title="Dialog With Actions"
+          title={this.props.title}
           actions={actions}
           modal={false}
           open={this.state.open}
           onRequestClose={this.handleClose}
         >
-          The actions in this window were passed in as an array of React objects.
-        </Dialog>
+          <div>
+          Overview: {this.props.overview}
+          </div>
+          <div>
+          Rating: {this.props.rating}
+          </div>
+       </Dialog>
       </div>
     );
   }
