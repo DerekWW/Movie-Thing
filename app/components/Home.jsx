@@ -1,20 +1,20 @@
 import React from 'react';
+import { Match, Miss, Link } from 'react-router';
 import UserMovies from './UserMovies';
 import FriendMovies from './FriendMovies';
 import MutualMovies from './MutualMovies';
 import Filter from './Filter';
+import Friends from './Friends';
 
 
 const Home = React.createClass({
   render(){
     return (
       <div>
+        <Link to='/friends'> Find Friends </Link>
         <Filter />
-        <h3>Your Movies</h3>
         <UserMovies />
-        <h3>Friends Movies</h3>
         <FriendMovies />
-        <h3>Go to the Movies</h3>
         <MutualMovies />
       </div>
     );

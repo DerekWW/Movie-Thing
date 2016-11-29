@@ -1,3 +1,4 @@
+import { BrowserRouter } from 'react-router';
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
@@ -11,13 +12,15 @@ injectTapEventPlugin();
 const App = React.createClass({
   render() {
     return (
-      <MuiThemeProvider>
-        <div>
-          <Header />
-          <Main />
-          <Footer />
-        </div>
-      </MuiThemeProvider>
+      <BrowserRouter>
+        <MuiThemeProvider>
+          <div>
+            <Header />
+            <Main />
+            <Footer />
+          </div>
+        </MuiThemeProvider>
+      </BrowserRouter>
     )
   }
 });

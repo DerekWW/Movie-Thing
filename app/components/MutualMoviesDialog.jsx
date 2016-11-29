@@ -11,7 +11,7 @@ const styles = {
 };
 
 
-const MovieMessageDialog = React.createClass ({
+const MutualMoviesDialog = React.createClass ({
   getInitialState(){
     return {
       open: false,
@@ -102,4 +102,4 @@ const MovieMessageDialog = React.createClass ({
   }
 })
 
-export default MovieMessageDialog;
+export default MutualMoviesDialog;

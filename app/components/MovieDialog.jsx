@@ -49,6 +49,7 @@ const MovieDialog = React.createClass ({
           <div>
           Overview: {this.props.overview}
           </div>
+          <br />
           <div>
           Rating: {this.props.rating}
           </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import {GridList, GridTile} from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
-import MovieMessageDialog from './MovieMessageDialog';
+import MutualMoviesDialog from './MutualMoviesDialog';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -89,7 +89,7 @@ const MutualMovies = () => (
           titleStyle={styles.titleStyle}
           titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
         >
-          <MovieMessageDialog
+          <MutualMoviesDialog
             src={tile.img}
             title={tile.title}
             rating={tile.rating}

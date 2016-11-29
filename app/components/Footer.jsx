@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = React.createClass({
   render(){
     return (
-      <h3>Footer</h3>
+      <h5>Footer</h5>
     );
   }
 });
