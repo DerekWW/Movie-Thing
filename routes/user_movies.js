@@ -23,7 +23,8 @@ const authorize = function(req, res, next) {
   });
 };
 
-router.get('/api/user_movies', authorize, (req, res, next) => {
+router.post('/api/user_movies', authorize, (req, res, next) => {
+   { movie } = req.body;
   knex('saved')
     .where('user_id', req.token.userId)
     .andWhere('movie_id', movie.id)
@@ -32,16 +33,18 @@ router.get('/api/user_movies', authorize, (req, res, next) => {
       if (exists) {
         throw boom.create(400, 'Movie already saved by user!');
       }
+
+      
+
     })
+    .then()
     .catch((err) => {
       console.error(err);
       next(err)
     });
 })
 
-router.post('/api/user_movies', authorize, (req, res, next) => {
-
-  const { movie } = req.body;
+router.get('/api/user_movies', authorize, (req, res, next) => {
 
   knex('saved')
     .where('user_id', req.token.userId)
