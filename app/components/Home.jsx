@@ -6,19 +6,19 @@ import MutualMovies from './MutualMovies';
 
 const Home = React.createClass({
   render(){
-    console.log(this.props.userMoviesArray);
+    console.log(this.props.friendsMoviesArray);
     return (
       <div>
         <Link to='/friends'> Find Friends </Link>
         <Link to='/moviesearch'>Find Movies </Link>
         <h4>Your Movies</h4>
-        <UserMovies />
-        <h4>Your Movies</h4>
         <UserMovies
           userMoviesArray={this.props.userMoviesArray}
         />
         <h4>Friends movies</h4>
-        <FriendMovies />
+        <FriendMovies
+          friendsMoviesArray={this.props.friendsMoviesArray}
+        />
         <MutualMovies
           mutualMoviesArray={this.props.mutualMoviesArray}
         />
