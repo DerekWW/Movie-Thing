@@ -4,7 +4,7 @@ import UserMovies from './UserMovies';
 import FriendMovies from './FriendMovies';
 import MutualMovies from './MutualMovies';
 import Filter from './Filter';
-import Friends from './Friends';
+// import Friends from './Friends';
 
 
 const Home = React.createClass({
@@ -14,6 +14,7 @@ const Home = React.createClass({
         <Link to='/friends'> Find Friends </Link>
         <Filter />
         <UserMovies />
+        <h4>Friends movies</h4>
         <FriendMovies />
         <MutualMovies />
       </div>

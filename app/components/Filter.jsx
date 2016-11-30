@@ -20,12 +20,6 @@ const Filter = () => (
       floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
       type="text"
     />
-    {/* <TextField
-      floatingLabelText="Find Friends"
-      floatingLabelStyle={styles.floatingLabelStyle}
-      floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
-      type="text"
-    /> */}
   </div>
 );
 

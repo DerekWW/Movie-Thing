@@ -27,7 +27,7 @@ const Header = React.createClass({
       <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
       <Toolbar>
         <ToolbarGroup>
-          <ToolbarTitle text="Movies & Stuff" />
+          <ToolbarTitle text="Movie Thing" />
           <ToolbarGroup firstChild={true}>
             <DropDownMenu
               value={this.state.value}
