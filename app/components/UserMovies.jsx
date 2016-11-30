@@ -84,11 +84,6 @@ const tilesData = [
   },
 ];
 
-const logButtonWorks = () => {
-  console.log('the button works!')
-}
-
-
 const UserMovies = () => {
 
   return (
@@ -100,7 +95,6 @@ const UserMovies = () => {
               // title={tile.title}
               titleStyle={styles.titleStyle}
               titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
-              onClick={logButtonWorks}
             >
               <MovieDialog
                 src={tile.img}
