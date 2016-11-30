@@ -23,10 +23,10 @@ router.get('/api/token', (req, res) => {
 });
 
 router.post('/api/token', (req, res, next) => {
-  const { email, password } = req.body;
+  const { username, password } = req.body;
 
-  if (!email || !email.trim()) {
-    return next(boom.create(400, 'Email must not be blank'));
+  if (!username || !username.trim()) {
+    return next(boom.create(400, 'Username must not be blank'));
   }
 
   if (!password || password.length < 8) {
@@ -36,11 +36,11 @@ router.post('/api/token', (req, res, next) => {
   let user;
 
   knex('users')
-    .where('email', email)
+    .where('username', username)
     .first()
     .then((row) => {
       if (!row) {
-        throw boom.create(400, 'Bad email or password');
+        throw boom.create(400, 'Bad username or password');
       }
 
       user = camelizeKeys(row);
