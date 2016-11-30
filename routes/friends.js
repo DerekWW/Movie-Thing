@@ -30,9 +30,9 @@ router.get('/api/friends', authorize, (req, res, next) => {
     .select('followed_id')
     .where('follower_id', userId)
     .then((followedIds) => {
-      let idArray = [];
+      const idArray = [];
 
-      for (let id of followedIds) {
+      for (const id of followedIds) {
         idArray.push(id.followed_id)
       }
 
@@ -51,10 +51,18 @@ router.post('/api/friends', authorize, (req, res, next) => {
   const  followedId = req.body.userId;
   const friends = { followerId, followedId }
 
-  console.log(friends);
 
   knex('friends')
-    .insert(decamelizeKeys(friends), '*')
+    .where('follower_id', followerId)
+    .andWhere('followed_id', followedId)
+    .first()
+    .then((rows) => {
+      console.log(rows);
+      if (rows) {
+        throw boom.create(400, 'User is already following this account!')
+      }
+      return knex('friends').insert(decamelizeKeys(friends), '*')
+    })
     .then((rows) => {
       res.send(rows);
     })
@@ -64,6 +72,7 @@ router.post('/api/friends', authorize, (req, res, next) => {
 
 });
 
+
 router.delete('/api/friends/:friendId', authorize, (req, res, next) => {
   const userId = req.token.userId;
   const friendId = req.params.friendId;
@@ -72,8 +81,8 @@ router.delete('/api/friends/:friendId', authorize, (req, res, next) => {
     .where('follower_id', userId)
     .andWhere('followed_id', friendId)
     .del()
-    .then((row) => {
-      res.send(row)
+    .then(() => {
+      res.send({ userId, friendId })
     })
     .catch((err) =>{
       next(err)

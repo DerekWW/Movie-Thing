@@ -26,6 +26,8 @@ const authorize = function(req, res, next) {
 router.get('/api/user_search', (req, res, next) => {
 let { firstName, lastName, username } = req.body;
 
+  
+
   if(firstName) {
     firstName = firstName.toLowerCase();
 

@@ -11,7 +11,7 @@ const { camelizeKeys, decamelizeKeys } = require('humps');
 const router = express.Router();
 
 router.post('/api/users', (req, res, next) => {
-  let { firstName, lastName, email, password } = req.body;
+  let { firstName, lastName, email, password, username } = req.body;
   console.log('Got this far');
 
   if (!firstName || !firstName.trim()) {
@@ -24,6 +24,10 @@ router.post('/api/users', (req, res, next) => {
 
   if (!email || !email.trim()) {
     return next(boom.create(400, 'Email must not be blank'));
+  }
+
+  if (!username || !username.trim()) {
+    return next(boom.create(400, 'Username must not be blank'));
   }
 
   if (!password || password.length < 8) {
@@ -47,7 +51,8 @@ router.post('/api/users', (req, res, next) => {
       firstName = firstName.toLowerCase();
       lastName = lastName.toLowerCase();
       email = email.toLowerCase();
-      const insertUser = { firstName, lastName, email, hashedPassword };
+      username = username.toLowerCase();
+      const insertUser = { firstName, lastName, email, hashedPassword, username };
 
       return knex('users')
         .insert(decamelizeKeys(insertUser), '*');
@@ -57,7 +62,7 @@ router.post('/api/users', (req, res, next) => {
 
       delete user.hashedPassword;
 
-      const expiry = new Date(Date.now() + 1000 * 60 * 60 * 3); // 3 hours
+      const expiry = new Date(Date.now() + 1000 * 60 * 60 * 10);
       const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, {
         expiresIn: '3h'
       });

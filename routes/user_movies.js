@@ -59,7 +59,7 @@ router.get('/api/user_movies/friends', authorize, (req, res, next) => {
 
 })
 
-
+//Need to test still
 router.post('/api/user_movies', authorize, (req, res, next) => {
   const { movie } = req.body;
   knex('user_movies')
