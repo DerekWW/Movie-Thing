@@ -12,7 +12,8 @@ const Main = React.createClass({
   getInitialState() {
     return {
       friends: [],
-      friendsArray: [{
+      movies: [],
+      usersArray: [{
           text: 'EdgarM',
           id: 1,
           value: (
@@ -196,6 +197,25 @@ const Main = React.createClass({
 
   },
 
+  handleAddToMoviesList(movie) {
+    const subMovieMatch = this.state.movies.filter((userMovie) => {
+      if(movie.id === userMovie.id) {
+        return true;
+      } else {
+        return false;
+      }
+    })
+
+    if(subMovieMatch.length === 1) {
+      //the movie is in the list
+      return;
+    }
+
+    const newMoviesArray = this.state.movies.concat(movie);
+
+    this.setState({ movies: newMoviesArray })
+  },
+
 
   render(){
     return (
@@ -214,15 +234,17 @@ const Main = React.createClass({
           () => <Friends
             { ...this.state }
             component={Friends}
-            usersArray={this.state.friendsArray}
+            usersArray={this.state.usersArray}
             friends={this.state.friends}
             handleAddToFriendsList={this.handleAddToFriendsList}
           />
         }/>
-        <Match
-          pattern="/moviesearch"
-          component={MovieSearch}
-        />
+        <Match pattern="/moviesearch" render={
+          () => <MovieSearch
+            { ...this.state }
+            component={MovieSearch}
+          />
+        }/>
         <Match
           pattern="/signup"
           component={SignUp}
