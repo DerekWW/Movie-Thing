@@ -1,34 +1,30 @@
-import React from 'react';
 import AutoComplete from 'material-ui/AutoComplete';
-import MenuItem from 'material-ui/MenuItem';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import MenuItem from 'material-ui/MenuItem';
+import React from 'react';
 
 const style = {
   marginRight: 20,
 };
-let currentFriends = [];
+// let currentFriends = [];
+
+// const currentFriends = [];
+//
+// addToFriends() {
+//   let newFriends;
+//
+//   const friendIds = this.currentFriends.map((friend) => friend.id);
+//
+//   if(friendIds.indexOf(friend.id) === -1) {
+//     newFriends = this.currentFriends.concat(friend);
+//   }
+//
+//   this.setState({ currentFriends: newFriends});
+//   console.log(newFriends);
+// },
 
 const Friends = React.createClass ({
-  setInitialState() {
-    return {
-  addToFriends() {
-    let newFriends;
-
-    const friendIds = this.currentFriends.map((friend) => friend.id);
-
-    if(friendIds.indexOf(friend.id) === -1) {
-      newFriends = this.currentFriends.concat(friend);
-    }
-
-    this.setState({ currentFriends: newFriends});
-    console.log(newFriends);
-  },
-  }
-},
-
-
-// const Friends = React.createClass ({
   render() {
     console.log(this.state);
     console.log(this.props.friendsArray);

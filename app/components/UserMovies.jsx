@@ -21,7 +21,7 @@ const styles = {
   },
 };
 
-const tilesData = [
+const userArray = [
   {
     img: 'http://static-api.guidebox.com/111615/thumbnails_movies_medium/136325-1649814174-8589512435-396055780-medium-240x342-alt-.jpg',
     title: 'Colonia',
@@ -85,11 +85,10 @@ const tilesData = [
 ];
 
 const UserMovies = () => {
-
   return (
       <div style={styles.root}>
         <GridList style={styles.gridList} cols={2.2} cellHeight='342'>
-          {tilesData.map((tile) => (
+          {userArray.map((tile) => (
             <GridTile
               key={tile.img}
               // title={tile.title}

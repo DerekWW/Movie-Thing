@@ -1,7 +1,5 @@
 import React from 'react';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { Link } from 'react-router';
 import IconMenu from 'material-ui/IconMenu';
 import FontIcon from 'material-ui/FontIcon';
 import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-more';
@@ -24,7 +22,6 @@ const Header = React.createClass({
 
   render() {
     return (
-      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
       <Toolbar>
         <ToolbarGroup>
           <ToolbarTitle text="Movie Thing" />
@@ -39,7 +36,6 @@ const Header = React.createClass({
           <FontIcon className="muidocs-icon-custom-sort" />
         </ToolbarGroup>
       </Toolbar>
-      </MuiThemeProvider>
     );
   }
 });
