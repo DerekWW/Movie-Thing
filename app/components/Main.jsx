@@ -11,6 +11,7 @@ import MenuItem from 'material-ui/MenuItem';
 const Main = React.createClass({
   getInitialState() {
     return {
+      friends: [],
       friendsArray: [{
           text: 'EdgarM',
           id: 1,
@@ -18,6 +19,7 @@ const Main = React.createClass({
             <MenuItem
               primaryText="Edgar"
               secondaryText="Martinez"
+              onClick={() => this.handleAddToFriendsList({text: 'EdgarM', id: 1})}
             />
           ),
         },
@@ -26,7 +28,10 @@ const Main = React.createClass({
           id: 2,
           value: (
             <MenuItem
-              primaryText="Jay Buhner"
+              primaryText="Jay"
+              secondaryText="Buhner"
+              onClick={() => this.handleAddToFriendsList({text: 'JayB', id: 2})}
+
             />
           ),
         },
@@ -165,6 +170,27 @@ const Main = React.createClass({
     }
   },
 
+  handleAddToFriendsList(person) {
+    const subFriendMatch = this.state.friends.filter((friend) => {
+      if(person.id === friend.id) {
+        return true;
+      } else {
+        return false;
+      }
+    })
+
+    if(subFriendMatch.length === 1) {
+      // the friend is in the list
+      return;
+    }
+
+    const newFriendsArray = this.state.friends.concat(person);
+
+    this.setState({ friends: newFriendsArray });
+
+  },
+
+
   render(){
     return (
       <div>
@@ -182,7 +208,9 @@ const Main = React.createClass({
           () => <Friends
             { ...this.state }
             component={Friends}
-            friendsArray={this.state.friendsArray}
+            usersArray={this.state.friendsArray}
+            friends={this.state.friends}
+            handleAddToFriendsList={this.handleAddToFriendsList}
           />
         }/>
         <Match

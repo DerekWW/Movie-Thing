@@ -13,6 +13,7 @@ const Home = React.createClass({
         <h4>Your Movies</h4>
         <UserMovies />
         <Link to='/moviesearch'>Find Movies </Link>
+        <h4>Your Movies</h4>
         <UserMovies
           userMoviesArray={this.props.userMoviesArray}
         />
