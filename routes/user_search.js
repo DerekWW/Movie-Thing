@@ -24,54 +24,9 @@ const authorize = function(req, res, next) {
 };
 
 router.get('/api/user_search', (req, res, next) => {
-let { firstName, lastName, username } = req.body;
+let { username } = req.body;
 
-
-
-  if(firstName) {
-    firstName = firstName.toLowerCase();
-
-    knex.select('first_name', 'last_name', 'id', 'username')
-      .from('users')
-      .where('first_name', firstName)
-      .then((exists) => {
-        if (!exists) {
-          throw boom.create(400, 'No such user found');
-        }
-
-        const users = camelizeKeys(exists)
-
-        res.send(users);
-
-      })
-      .catch((err) => {
-        console.error(err);
-        next(err)
-      })
-
-  }else if (lastName) {
-    lastName = lastName.toLowerCase();
-
-    knex.select('first_name', 'last_name', 'id', 'username')
-      .from('users')
-      .where('last_name', lastName)
-      .then((exists) => {
-        if (!exists) {
-          throw boom.create(400, 'No such user found');
-        }
-
-        const users = camelizeKeys(exists)
-
-        res.send(users);
-
-      })
-      .catch((err) => {
-        console.error(err);
-        next(err)
-      })
-
-  }else if (email) {
-    email = email.toLowerCase();
+    username = username.toLowerCase();
 
     knex.select('first_name', 'last_name', 'id', 'username')
       .from('users')
@@ -81,19 +36,17 @@ let { firstName, lastName, username } = req.body;
           throw boom.create(400, 'No such user found');
         }
 
-        const users = camelizeKeys(exists)
+        const user = camelizeKeys(exists)
 
-        res.send(users);
+        res.send(user);
 
       })
       .catch((err) => {
         console.error(err);
         next(err)
       })
-  } else {
-    return next(boom.create(400, 'Must have at least one of the following: first name, last name, or email.'))
 
-  }
+
 
 });
 
