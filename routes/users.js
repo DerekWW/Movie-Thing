@@ -34,7 +34,6 @@ router.post('/api/users', (req, res, next) => {
   }
 
   knex('users')
-    .select(knex.raw('1=1'))
     .where('email', email)
     .first()
     .then((exists) => {

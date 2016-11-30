@@ -24,12 +24,12 @@ const authorize = function(req, res, next) {
 };
 
 router.get('/api/user_search', (req, res, next) => {
-let { firstName, lastName, email } = req.body;
+let { firstName, lastName, username } = req.body;
 
   if(firstName) {
     firstName = firstName.toLowerCase();
 
-    knex.select('first_name', 'last_name')
+    knex.select('first_name', 'last_name', 'id')
       .from('users')
       .where('first_name', firstName)
       .then((exists) => {
@@ -50,7 +50,7 @@ let { firstName, lastName, email } = req.body;
   }else if (lastName) {
     lastName = lastName.toLowerCase();
 
-    knex.select('first_name', 'last_name')
+    knex.select('first_name', 'last_name', 'id')
       .from('users')
       .where('last_name', lastName)
       .then((exists) => {
@@ -71,9 +71,9 @@ let { firstName, lastName, email } = req.body;
   }else if (email) {
     email = email.toLowerCase();
 
-    knex.select('first_name', 'last_name')
+    knex.select('first_name', 'last_name', 'id')
       .from('users')
-      .where('email', email)
+      .where('username', username)
       .then((exists) => {
         if (!exists) {
           throw boom.create(400, 'No such user found');

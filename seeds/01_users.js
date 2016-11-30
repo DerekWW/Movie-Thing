@@ -9,12 +9,14 @@ exports.seed = function(knex) {
         id: 1,
         first_name: 'Adele',
         last_name: 'Rowling',
+        username: 'rowling',
         email: 'jkrowling@gmail.com',
         hashed_password: '$2a$12$C9AYYmcLVGYlGoO4vSZTPud9ArJwbGRsJ6TUsNULzR48z8fOnTXbS'
       }, {
         id: 2,
         first_name: 'Scooby',
         last_name: 'Doo',
+        username: 'scooby',
         email: 'scoobydoo@gmail.com',
         hashed_password: '$2a$12$C9AYYmcLVGYlGoO4vSZTPud9ArJwbGRsJ6TUsNULzR48z8fOnTXbS'
       }]);
