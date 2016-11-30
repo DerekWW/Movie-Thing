@@ -30,13 +30,13 @@ const MutualMovies = React.createClass ({
     console.log(this.props.mutualMoviesArray);
     return (
       <div style={styles.root}>
-        <GridList style={styles.gridList} cols={2.2} cellHeight='342'>
+        <GridList style={styles.gridList} cols={2.2} cellHeight={342}>
           {this.props.mutualMoviesArray.map((tile) => (
             <GridTile
               key={tile.img}
               title={tile.title}
               actionIcon={<IconButton><StarBorder color="rgb(0, 188, 212)" /></IconButton>}
-              titleStyle={styles.titleStyle}
+              style={styles.titleStyle}
               titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
             >
               <MutualMoviesDialog
