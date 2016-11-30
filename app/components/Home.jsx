@@ -10,9 +10,9 @@ const Home = React.createClass({
     return (
       <div>
         <Link to='/friends'> Find Friends </Link>
+        <Link to='/moviesearch'>Find Movies </Link>
         <h4>Your Movies</h4>
         <UserMovies />
-        <Link to='/moviesearch'>Find Movies </Link>
         <h4>Your Movies</h4>
         <UserMovies
           userMoviesArray={this.props.userMoviesArray}

@@ -38,9 +38,12 @@ const LogIn = React.createClass({
   handleSubmit(event) {
     event.preventDefault();
     const user = { username: this.state.username, password: this.state.password};
-    axios.post('/api/token', user).then((response) => {
+    axios.post('/api/token', user)
+    .then((response) => {
       console.log(response);
-    })
+    });
+
+    this.setState({ username: '', password: ''});
   },
 
   handleChange(event) {

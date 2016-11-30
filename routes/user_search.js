@@ -26,12 +26,12 @@ const authorize = function(req, res, next) {
 router.get('/api/user_search', (req, res, next) => {
 let { firstName, lastName, username } = req.body;
 
-  
+
 
   if(firstName) {
     firstName = firstName.toLowerCase();
 
-    knex.select('first_name', 'last_name', 'id')
+    knex.select('first_name', 'last_name', 'id', 'username')
       .from('users')
       .where('first_name', firstName)
       .then((exists) => {
@@ -52,7 +52,7 @@ let { firstName, lastName, username } = req.body;
   }else if (lastName) {
     lastName = lastName.toLowerCase();
 
-    knex.select('first_name', 'last_name', 'id')
+    knex.select('first_name', 'last_name', 'id', 'username')
       .from('users')
       .where('last_name', lastName)
       .then((exists) => {
@@ -73,7 +73,7 @@ let { firstName, lastName, username } = req.body;
   }else if (email) {
     email = email.toLowerCase();
 
-    knex.select('first_name', 'last_name', 'id')
+    knex.select('first_name', 'last_name', 'id', 'username')
       .from('users')
       .where('username', username)
       .then((exists) => {

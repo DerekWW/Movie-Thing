@@ -13,6 +13,7 @@ const router = express.Router();
 router.post('/api/users', (req, res, next) => {
   let { firstName, lastName, email, password, username } = req.body;
   console.log('Got this far');
+  console.log(req.body);
 
   if (!firstName || !firstName.trim()) {
     return next(boom.create(400, 'First Name must not be blank'));
@@ -38,11 +39,11 @@ router.post('/api/users', (req, res, next) => {
   }
 
   knex('users')
-    .where('email', email)
+    .where('username', username)
     .first()
     .then((exists) => {
       if (exists) {
-        throw boom.create(400, 'Email already exists');
+        throw boom.create(400, 'Username already exists');
       }
 
       return bcrypt.hash(password, 12);
