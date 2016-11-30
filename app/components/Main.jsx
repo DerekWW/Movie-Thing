@@ -40,7 +40,9 @@ const Main = React.createClass({
           id: 3,
           value: (
             <MenuItem
-              primaryText="Ken Griffey, Jr."
+              primaryText="Ken"
+              secondaryText="Griffey, Jr."
+              onClick={() => this.handleAddToFriendsList({text: 'KenG', id: 3})}
             />
           ),
         },
@@ -49,7 +51,9 @@ const Main = React.createClass({
           id: 4,
           value: (
             <MenuItem
-              primaryText="Dan Wilson"
+              primaryText="Dan"
+              secondaryText="Wilson"
+              onClick={() => this.handleAddToFriendsList({text: 'DanW', id: 4})}
             />
           ),
         },
@@ -58,7 +62,9 @@ const Main = React.createClass({
           id: 5,
           value: (
             <MenuItem
-              primaryText="Lou Pinella"
+              primaryText="Lou"
+              secondaryText="Pinella"
+              onClick={() => this.handleAddToFriendsList({text: 'LouP', id: 5})}
             />
           ),
         },
