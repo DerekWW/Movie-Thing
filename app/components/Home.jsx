@@ -4,6 +4,14 @@ import Landing from './Landing';
 import UserMovies from './UserMovies';
 import FriendMovies from './FriendMovies';
 import MutualMovies from './MutualMovies';
+import { black, grey100, grey200, grey800, grey900, red400 } from 'material-ui/styles/colors';
+
+const styles = {
+  pageStyle: {
+    backgroundColor: grey200,
+    fontFamily: 'Merriweather'
+  },
+}
 
 const Home = React.createClass({
   render(){

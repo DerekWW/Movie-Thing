@@ -4,8 +4,13 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import {GridList, GridTile} from 'material-ui/GridList';
+import { black, grey100, grey200, grey800, grey900, red400 } from 'material-ui/styles/colors';
 
 const styles = {
+  pageStyle: {
+    backgroundColor: grey200,
+    fontFamily: 'Merriweather'
+  },
   root: {
     display: 'flex',
     flexWrap: 'wrap',

@@ -1,6 +1,15 @@
 import React from 'react';
 import Filter from './Filter';
 import MovieSearchTiles from './MovieSearchTiles'
+import { black, grey100, grey200, grey800, grey900, red400 } from 'material-ui/styles/colors';
+
+const styles = {
+  pageStyle: {
+    backgroundColor: grey200,
+    fontFamily: 'Merriweather'
+  },
+
+}
 
 const MovieSearch = React.createClass ({
 
@@ -35,8 +44,8 @@ const MovieSearch = React.createClass ({
 
   render () {
     return (
-      <div>
-        <div>
+      <div className="container" style={styles.pageStyle}>
+        <div className="row">
           <Filter
             { ...this.state }
             movieSearch={this.movieSearch}

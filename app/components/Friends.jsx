@@ -4,8 +4,13 @@ import FloatingActionButton from 'material-ui/FloatingActionButton';
 import MenuItem from 'material-ui/MenuItem';
 import React from 'react';
 import Users from './Users';
+import { black, grey100, grey200, grey800, grey900, red400 } from 'material-ui/styles/colors';
 
-const style = {
+const styles = {
+  pageStyle: {
+    backgroundColor: grey200,
+    fontFamily: 'Merriweather'
+  },
   marginRight: 20,
 };
 

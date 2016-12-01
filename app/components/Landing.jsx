@@ -186,6 +186,7 @@ const Landing = React.createClass({
                 modal={false}
                 open={this.state.signupOpen}
                 onRequestClose={this.handleClose}
+                style={styles.pageStyle}
                 >
                   <SignUp />
                 </Dialog>

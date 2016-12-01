@@ -1,13 +1,17 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
-import {orange500, blue500} from 'material-ui/styles/colors';
+import { black, grey100, grey200, grey800, grey900, red400 } from 'material-ui/styles/colors';
 
 const styles = {
+  pageStyle: {
+    backgroundColor: grey200,
+    fontFamily: 'Merriweather'
+  },
   floatingLabelStyle: {
-    color: blue500,
+    color: red400,
   },
   floatingLabelFocusStyle: {
-    color: blue500,
+    color: red400,
   },
 };
 
