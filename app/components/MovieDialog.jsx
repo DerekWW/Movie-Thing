@@ -24,7 +24,7 @@ const MovieDialog = React.createClass ({
   render(){
     const actions = [
       <FlatButton
-        label="Message a Friend"
+        label="Add to Movie List"
         primary={true}
         keyboardFocused={true}
         onTouchTap={this.handleClose}

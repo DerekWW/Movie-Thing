@@ -2,6 +2,7 @@ import { BrowserRouter } from 'react-router';
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
+import Landing from './Landing';
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -16,6 +17,7 @@ const App = React.createClass({
         <MuiThemeProvider>
           <div>
             <Header />
+            {/* <Landing /> */}
             <Main />
             <Footer />
           </div>

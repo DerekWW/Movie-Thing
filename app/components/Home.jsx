@@ -1,5 +1,6 @@
 import React from 'react';
 import { Match, Miss, Link } from 'react-router';
+import Landing from './Landing';
 import UserMovies from './UserMovies';
 import FriendMovies from './FriendMovies';
 import MutualMovies from './MutualMovies';
@@ -11,8 +12,7 @@ const Home = React.createClass({
       <div className="container">
         <div>
         <div>
-        <Link to='/friends'> Find Friends </Link>
-        <Link to='/moviesearch'>Find Movies </Link>
+        <Link to='/landing'> Landing Page </Link>
         </div>
         <h4>Your Movies</h4>
         <UserMovies
