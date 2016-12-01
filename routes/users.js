@@ -12,7 +12,6 @@ const router = express.Router();
 
 router.post('/api/users', (req, res, next) => {
   let { firstName, lastName, email, password, username } = req.body;
-  console.log('Got this far');
   console.log(req.body);
 
   if (!firstName || !firstName.trim()) {

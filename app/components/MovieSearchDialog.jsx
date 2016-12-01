@@ -15,8 +15,23 @@ const MovieSearchDialog = React.createClass ({
     this.setState({open: true});
   },
 
-  handleClose(){
+
+
+  addToFavorites() {
+    console.log(this.props);
     this.setState({open: false});
+    let movie = {
+      id: this.props.id,
+      rating: this.props.rating,
+      title: this.props.title,
+      poster: this.props.src,
+      overview: this.props.overview,
+      embedLink: this.props.embedLink,
+    }
+    axios.post('/api/user_movies', movie)
+    .then((res) => {
+      console.log(res);
+    })
   },
 
 
@@ -27,7 +42,7 @@ const MovieSearchDialog = React.createClass ({
         label="Add to Favorites"
         primary={true}
         keyboardFocused={true}
-        onTouchTap={this.handleClose}
+        onTouchTap={this.addToFavorites}
       />,
       <FlatButton
         label="Close"
