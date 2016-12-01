@@ -35,7 +35,7 @@ const Landing = React.createClass({
   getInitialState(){
     return {
       signupOpen: false,
-      open: false,
+      loginOpen: false,
       landingMoviesArray: [
         {
         movie_poster: 'http://static-api.guidebox.com/111615/thumbnails_movies_medium/136325-1649814174-8589512435-396055780-medium-240x342-alt-.jpg',
@@ -105,30 +105,43 @@ const Landing = React.createClass({
     this.setState({signupOpen: true});
   },
 
-  handleOpenLogin(){
-    this.setState({open: true});
-  },
-
   handleCloseSignup(){
-    this.setState({open: false});
+    this.setState({signupOpen: false});
   },
 
-  handleClose(){
-    this.setState({open: false});
+  handleOpenLogin(){
+    this.setState({loginOpen: true});
+  },
+
+  handleCloseLogin(){
+    this.setState({loginOpen: false});
   },
 
   render(){
-    const actions = [
+    const actionsSignup = [
       <FlatButton
         label="Submit"
         primary={true}
-        keyboardFocused={true}
-        onClick={this.handleClose}
+        keyboardFocused={false}
+        onClick={this.handleCloseSignup}
       />,
       <FlatButton
         label="Close"
         primary={true}
-        onClick={this.handleClose}
+        onClick={this.handleCloseSignup}
+      />,
+    ];
+    const actionsLogin = [
+      <FlatButton
+        label="Submit"
+        primary={true}
+        keyboardFocused={false}
+        onClick={this.handleCloseLogin}
+      />,
+      <FlatButton
+        label="Close"
+        primary={true}
+        onClick={this.handleCloseLogin}
       />,
     ];
     return (
@@ -146,7 +159,7 @@ const Landing = React.createClass({
             />
               <Dialog
                 title="Sign up for Movie Thing"
-                actions={actions}
+                actions={actionsSignup}
                 modal={false}
                 open={this.state.signupOpen}
                 onRequestClose={this.handleClose}
@@ -162,9 +175,9 @@ const Landing = React.createClass({
               />
                 <Dialog
                   title="Login to your Movie Thing"
-                  actions={actions}
+                  actions={actionsLogin}
                   modal={false}
-                  open={this.state.open}
+                  open={this.state.loginOpen}
                   onRequestClose={this.handleClose}
                   >
                     <Login />

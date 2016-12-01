@@ -6,18 +6,24 @@ import Landing from './Landing';
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import { black, grey100, grey800, grey900 } from 'material-ui/styles/colors';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 injectTapEventPlugin();
+
+const styles = {
+  pageStyle: {
+    backgroundColor: grey100,
+  },
+};
 
 const App = React.createClass({
   render() {
     return (
       <BrowserRouter>
         <MuiThemeProvider>
-          <div>
+          <div style={styles.pageStyle}>
             <Header />
-            {/* <Landing /> */}
             <Main />
             <Footer />
           </div>

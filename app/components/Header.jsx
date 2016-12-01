@@ -9,13 +9,19 @@ import { black, grey100, grey800, grey900 } from 'material-ui/styles/colors';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 
 const styles = {
+  pageStyle: {
+    backgroundColor: grey100,
+  },
   toolbarStyle: {
     backgroundColor: grey900,
+    verticalAlign: 'middle',
   },
   titleStyle: {
     color: grey100,
     fontSize: 20,
     textDecoration: 'none',
+    fontFamily: 'Limelight',
+    verticalAlign: 'middle',
   },
   linksStyle: {
     color: grey100,
@@ -35,10 +41,9 @@ const Header = React.createClass({
     this.setState({value});
   },
 
-
   render() {
     return (
-      <div className="row">
+      <div className="row" style={styles.pageStyle}>
       <Toolbar style={styles.toolbarStyle}>
           <div className="six columns">
           <Link to='/' style={styles.titleStyle}>Movie Thing </Link>
@@ -49,14 +54,6 @@ const Header = React.createClass({
           <div className="three columns">
           <Link to='/moviesearch' style={styles.linksStyle}>Find Movies </Link>
           </div>
-          {/* <ToolbarGroup firstChild={true}>
-            <DropDownMenu
-              value={this.state.value}
-              onChange={this.handleChange}>
-              <MenuItem value={1} primaryText="SignUp" className="dropdown-menu"/>
-              <MenuItem value={2} primaryText="LogIn" className="dropdown-menu"/>
-            </DropDownMenu>
-          </ToolbarGroup> */}
       </Toolbar>
     </div>
     );
