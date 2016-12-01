@@ -19,15 +19,25 @@ const MovieDialog = React.createClass ({
     this.setState({open: false});
   },
 
+  handleClick() {
+    let movieId = this.props.id
+    axios.delete(`/api/user_movies`, {data: {movieId}})
+    .then(res => {
+      this.setState({open: false});
+    }).then(() => {
+
+    })
+  },
+
 
 
   render(){
     const actions = [
       <FlatButton
-        label="Add to Movie List"
+        label="Remove from Favorites"
         primary={true}
         keyboardFocused={true}
-        onTouchTap={this.handleClose}
+        onTouchTap={this.handleClick}
       />,
       <FlatButton
         label="Close"
