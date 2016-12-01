@@ -15,63 +15,6 @@ const Main = React.createClass({
       userMoviesArray: [],
       friendsMoviesArray: [],
       userMovies: [],
-      usersArray: [{
-          text: 'EdgarM',
-          id: 1,
-          value: (
-            <MenuItem
-              primaryText="Edgar"
-              secondaryText="Martinez"
-              onClick={() => this.handleAddToFriendsList({text: 'EdgarM', id: 1})}
-            />
-          ),
-        },
-        {
-          text: 'JayB',
-          id: 2,
-          value: (
-            <MenuItem
-              primaryText="Jay"
-              secondaryText="Buhner"
-              onClick={() => this.handleAddToFriendsList({text: 'JayB', id: 2})}
-
-            />
-          ),
-        },
-        {
-          text: 'KenG',
-          id: 3,
-          value: (
-            <MenuItem
-              primaryText="Ken"
-              secondaryText="Griffey, Jr."
-              onClick={() => this.handleAddToFriendsList({text: 'KenG', id: 3})}
-            />
-          ),
-        },
-        {
-          text: 'DanW',
-          id: 4,
-          value: (
-            <MenuItem
-              primaryText="Dan"
-              secondaryText="Wilson"
-              onClick={() => this.handleAddToFriendsList({text: 'DanW', id: 4})}
-            />
-          ),
-        },
-        {
-          text: 'LouP',
-          id: 5,
-          value: (
-            <MenuItem
-              primaryText="Lou"
-              secondaryText="Pinella"
-              onClick={() => this.handleAddToFriendsList({text: 'LouP', id: 5})}
-            />
-          ),
-        },
-      ],
       mutualMoviesArray: [
         {
           img: "http://static-api.guidebox.com/111615/thumbnails_movies_medium/134699-5645093233-3003997687-3038975559-medium-240x342-alt-.jpg",
@@ -117,6 +60,7 @@ const Main = React.createClass({
     }
   },
 
+
   componentDidMount() {
     axios.get('/api/user_movies/user')
       .then((res) => {
@@ -136,6 +80,8 @@ const Main = React.createClass({
           console.error(err);
         });
   },
+
+
 
   handleAddToFriendsList(person) {
     const subFriendMatch = this.state.friends.filter((friend) => {

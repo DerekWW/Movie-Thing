@@ -3,6 +3,7 @@ import ContentAdd from 'material-ui/svg-icons/content/add';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import MenuItem from 'material-ui/MenuItem';
 import React from 'react';
+import Users from './Users';
 
 const style = {
   marginRight: 20,
@@ -11,40 +12,28 @@ const style = {
 const Friends = React.createClass ({
   getInitialState() {
     return {
-      searchText: ''
+      usersArray: [],
     };
   },
 
-  handleUpdateInput(searchText) {
-    this.setState({ searchText });
-  },
-
-  handleClick() {
-    this.props.handleAddToFriendsList(this.state.searchText);
+  componentDidMount() {
+    axios.get('/api/user_search')
+      .then((res) => {
+        console.log(res);
+        this.setState({ usersArray: res.data })
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   },
 
   render() {
-    console.log(this.state);
-    console.log(this.props.usersArray);
-
     return (
       <div>
-        <AutoComplete
-          floatingLabelText="Find friends"
-          hintText="Username"
-          filter={(searchText, key) => searchText.toLowerCase() === key.toLowerCase()}
-          dataSource={this.props.usersArray}
-          maxSearchResults={0}
-          searchText={ this.state.searchText }
-          onUpdateInput={ this.handleUpdateInput }
+        <h3>Friends Search</h3>
+        <Users
+          usersArray={this.state.usersArray}
         />
-
-        <h3>Friend List</h3>
-        <ul>
-          {this.props.friends.map((friend, index) => {
-            return <li key={index}>{friend.text}</li>
-          })}
-        </ul>
       </div>
     );
   }

@@ -24,13 +24,9 @@ const authorize = function(req, res, next) {
 };
 
 router.get('/api/user_search', (req, res, next) => {
-let { username } = req.body;
-
-    username = username.toLowerCase();
-
     knex.select('first_name', 'last_name', 'id', 'username')
       .from('users')
-      .where('username', username)
+      // .whereNot('id', req.token.id)
       .then((exists) => {
         if (!exists) {
           throw boom.create(400, 'No such user found');
