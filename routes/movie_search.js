@@ -25,23 +25,52 @@ const authorize = function(req, res, next) {
   });
 };
 
-router.get('/api/movie_search/title/:movieSearch', (req, res, next) => {
-  const movie = req.params.movieSearch;
+let moviesFull = [];
 
- axios.get(`https://api-public.guidebox.com/v1.43/US/rKZKTP9f7YPjtoVHxBVqJdHm1KwRoO69/search/movie/title/${movie}/fuzzy`)
-  .then((searchResponse)=> {
-    const movies = searchResponse.data.results;
+router.post('/api/movie_search/title', (req, res, next) => {
 
-    res.send(movies);
+  const { movieSearch } = req.body;
+  let movies;
+  let ids;
+
+ axios.get(`https://api-public.guidebox.com/v1.43/US/rKZKTP9f7YPjtoVHxBVqJdHm1KwRoO69/search/movie/title/${movieSearch}/fuzzy`)
+  .then(searchResponse => {
+
+    return searchResponse.data.results;
   })
-  .catch((err) => {
-    next(err);
-  })
+  .then(movies =>{
+    return movies.map(movie => {
+      return movie.id;
+       })
+     })
+    .then(ids => {
+      const requests = ids.map(id => {
+        return axios.get(`https://api-public.guidebox.com/v1.43/US/rKZKTP9f7YPjtoVHxBVqJdHm1KwRoO69/movie/${id}`)
+      })
 
+      return axios.all(requests)
+    })
+      .then(axios.spread(function(){
+
+        let args = [...arguments];
+
+        let response = args.map((movie) => {
+          return movie.data
+        })
+
+        res.send(response)
+      }))
+      .catch((err) => {
+        console.error(err);
+      })
 })
 
-router.get('/api/movie_search/id/:id', (req, res, next) => {
-  const id = req.params.id;
+
+
+
+
+router.post('/api/movie_search/id', (req, res, next) => {
+  const id = req.body.id;
 
  axios.get(`https://api-public.guidebox.com/v1.43/US/rKZKTP9f7YPjtoVHxBVqJdHm1KwRoO69/movie/${id}`)
   .then((searchResponse)=> {

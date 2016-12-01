@@ -11,16 +11,35 @@ const styles = {
   },
 };
 
-const Filter = () => (
-  <div>
+const Filter = React.createClass ({
 
-    <TextField
-      floatingLabelText="Search Movies"
-      floatingLabelStyle={styles.floatingLabelStyle}
-      floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
-      type="text"
-    />
-  </div>
-);
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props.movieSearch();
+  },
+
+  handleChange(event) {
+    this.props.updateSearch(event.target.value)
+  },
+
+  render() {
+    return (
+
+
+    <form onSubmit={this.handleSubmit}>
+      <TextField
+        name="searchText"
+        onChange={this.handleChange}
+        value={this.props.searchText}
+        floatingLabelText="Search Movies"
+        floatingLabelStyle={styles.floatingLabelStyle}
+        floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
+        type="text"
+      />
+    </form>
+  )
+  }
+
+});
 
 export default Filter;
