@@ -150,21 +150,11 @@ const Main = React.createClass({
         <Match pattern="/moviesearch" render={
           () => <MovieSearch
             { ...this.state }
-            component={MovieSearch}
           />
         }/>
-        {/* <Match
-          pattern="/signup"
-          component={SignUp}
-        />
-        <Match
-          pattern="/login"
-          component={LogIn}
-        /> */}
-        <Match
-          pattern="/landing"
-          component={Landing}
-          checkIsLoggedIn={this.props.checkIsLoggedIn}
+        <Match pattern="/landing" render={
+          () => <Landing checkIsLoggedIn={this.props.checkIsLoggedIn} />
+          }
         />
       </div>
     );

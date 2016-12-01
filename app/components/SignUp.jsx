@@ -57,6 +57,7 @@ const SignUp = React.createClass({
 
     axios.post('/api/users', user)
     .then((response) => {
+      this.props.checkIsLoggedIn();
       console.log(response);
     })
     .catch((err) => {
@@ -71,7 +72,7 @@ const SignUp = React.createClass({
       password : ''
     })
 
-
+    this.props.handleCloseSignup();
   },
 
 

@@ -153,12 +153,6 @@ const Landing = React.createClass({
     ];
     const actionsLogin = [
       <FlatButton
-        label="Submit"
-        primary={true}
-        keyboardFocused={false}
-        onClick={this.handleCloseLogin}
-      />,
-      <FlatButton
         label="Close"
         primary={true}
         onClick={this.handleCloseLogin}
@@ -190,6 +184,7 @@ const Landing = React.createClass({
                 >
                   <SignUp
                     checkIsLoggedIn={this.props.checkIsLoggedIn}
+                    handleCloseSignup={this.handleCloseSignup}
                   />
                 </Dialog>
 
@@ -208,6 +203,7 @@ const Landing = React.createClass({
                   >
                     <Login
                       checkIsLoggedIn={this.props.checkIsLoggedIn}
+                      handleCloseLogin={this.handleCloseLogin}
                     />
                   </Dialog>
               </div>

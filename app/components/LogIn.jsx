@@ -42,10 +42,11 @@ const LogIn = React.createClass({
     const user = { username: this.state.username, password: this.state.password};
     axios.post('/api/token', user)
     .then((response) => {
+      this.props.checkIsLoggedIn();
       console.log(response);
     });
 
-    this.props.checkIsLoggedIn();
+    this.props.handleCloseLogin();
     this.setState({ username: '', password: ''});
   },
 
@@ -55,6 +56,7 @@ const LogIn = React.createClass({
     this.setState({ [event.target.name] : event.target.value});
     console.log(this.state);
   },
+
 
   render() {
     return (
@@ -78,7 +80,7 @@ const LogIn = React.createClass({
             errorStyle={styles.floatingLabelStyle}
           />
           <br />
-          <RaisedButton type="submit" label="LogIn" primary={true} style={styles.buttonStyle} />
+          <RaisedButton type="submit" label="LogIn" primary={true} style={styles.buttonStyle}/>
         </form>
     );
   }
