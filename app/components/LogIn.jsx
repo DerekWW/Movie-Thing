@@ -45,6 +45,7 @@ const LogIn = React.createClass({
       console.log(response);
     });
 
+    this.props.checkIsLoggedIn();
     this.setState({ username: '', password: ''});
   },
 

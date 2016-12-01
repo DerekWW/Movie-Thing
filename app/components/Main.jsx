@@ -6,7 +6,6 @@ import LogIn from './LogIn';
 import SignUp from './SignUp';
 import { Match, Miss } from 'react-router';
 import MenuItem from 'material-ui/MenuItem';
-
 import Landing from './Landing';
 
 
@@ -154,17 +153,18 @@ const Main = React.createClass({
             component={MovieSearch}
           />
         }/>
-        <Match
+        {/* <Match
           pattern="/signup"
           component={SignUp}
         />
         <Match
           pattern="/login"
           component={LogIn}
-        />
+        /> */}
         <Match
           pattern="/landing"
           component={Landing}
+          checkIsLoggedIn={this.props.checkIsLoggedIn}
         />
       </div>
     );

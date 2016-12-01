@@ -188,7 +188,9 @@ const Landing = React.createClass({
                 onRequestClose={this.handleClose}
                 style={styles.pageStyle}
                 >
-                  <SignUp />
+                  <SignUp
+                    checkIsLoggedIn={this.props.checkIsLoggedIn}
+                  />
                 </Dialog>
 
               <RaisedButton
@@ -204,7 +206,9 @@ const Landing = React.createClass({
                   open={this.state.loginOpen}
                   onRequestClose={this.handleClose}
                   >
-                    <Login />
+                    <Login
+                      checkIsLoggedIn={this.props.checkIsLoggedIn}
+                    />
                   </Dialog>
               </div>
             </div>

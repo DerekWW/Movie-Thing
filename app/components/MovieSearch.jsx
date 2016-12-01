@@ -6,9 +6,9 @@ import { black, grey100, grey200, grey800, grey900, red400 } from 'material-ui/s
 const styles = {
   pageStyle: {
     backgroundColor: grey200,
-    fontFamily: 'Merriweather'
+    fontFamily: 'Merriweather',
+    height: '100%',
   },
-
 }
 
 const MovieSearch = React.createClass ({
@@ -44,21 +44,22 @@ const MovieSearch = React.createClass ({
 
   render () {
     return (
-      <div className="container" style={styles.pageStyle}>
-        <div className="row">
-          <Filter
-            { ...this.state }
-            movieSearch={this.movieSearch}
-            updateSearch={this.updateSearch}
-          />
-        </div>
-        <div>
-          <MovieSearchTiles
-            moviesArray={this.state.movies}
-            movieIdSearch={this.movieIdSearch}
-          />
-        </div>
-
+      <div>
+        <div className="container" style={styles.pageStyle}>
+          <div className="row">
+            <Filter
+              { ...this.state }
+              movieSearch={this.movieSearch}
+              updateSearch={this.updateSearch}
+            />
+          </div>
+          <div>
+            <MovieSearchTiles
+              moviesArray={this.state.movies}
+              movieIdSearch={this.movieIdSearch}
+            />
+          </div>
+       </div>
      </div>
     )
   }

@@ -15,7 +15,7 @@ const styles = {
 
 const Home = React.createClass({
   render(){
-    console.log(this.props.userSearch);
+    // console.log(this.props.userSearch);
     return (
       <div className="container">
         <div>

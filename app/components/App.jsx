@@ -1,4 +1,4 @@
-import { BrowserRouter } from 'react-router';
+import { BrowserRouter, Match, Miss } from 'react-router';
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
@@ -19,13 +19,46 @@ const styles = {
 };
 
 const App = React.createClass({
+  getInitialState() {
+    return{
+      isLoggedIn: false,
+    }
+  },
+
+  componentDidMount() {
+    axios.get('/api/token')
+      .then((res) => {
+        console.log(res);
+        this.setState({ isLoggedIn: res.data })
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  },
+
+  checkIsLoggedIn() {
+    axios.get('/api/token')
+      .then((res) => {
+        console.log(res);
+        this.setState({ isLoggedIn: res.data })
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  },
+
   render() {
     return (
       <BrowserRouter>
         <MuiThemeProvider>
           <div style={styles.pageStyle}>
-            <Header />
-            <Main />
+            <Header
+              isLoggedIn={this.state.isLoggedIn}
+              checkIsLoggedIn={this.checkIsLoggedIn}
+            />
+            <Main
+              checkIsLoggedIn={this.checkIsLoggedIn}
+            />
             <Footer />
           </div>
         </MuiThemeProvider>

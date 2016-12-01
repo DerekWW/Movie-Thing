@@ -5,6 +5,7 @@ import FontIcon from 'material-ui/FontIcon';
 import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-more';
 import MenuItem from 'material-ui/MenuItem';
 import DropDownMenu from 'material-ui/DropDownMenu';
+import FlatButton from 'material-ui/FlatButton';
 import { black, grey100, grey200, grey800, grey900, red400 } from 'material-ui/styles/colors';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 
@@ -46,18 +47,45 @@ const Header = React.createClass({
     this.setState({value});
   },
 
+  handleLogout(){
+    axios.delete('/api/token')
+      .then(() => {
+        this.props.checkIsLoggedIn();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  },
+
+
+
+
   render() {
+    const isLoggedIn = this.props.isLoggedIn;
+
+    let button = null;
+    if(isLoggedIn) {
+      button = <FlatButton
+        label="Logout"
+        style={styles.linksStyle}
+        onClick={this.handleLogout}
+      />
+    }
+
     return (
       <div className="row" style={styles.pageStyle}>
       <Toolbar style={styles.toolbarStyle}>
-          <div className="six columns">
+          <div className="four columns">
           <Link to='/' style={styles.titleStyle}>Movie Thing </Link>
           </div>
-          <div className="two columns offset-by-five" style={styles.textStyle}>
+          <div className="three columns" style={styles.textStyle}>
           <Link to='/friends' style={styles.linksStyle}> Find Friends </Link>
           </div>
-          <div className="two columns" style={styles.textStyle}>
-          <Link to='/moviesearch' style={styles.linksStyle}>Find Movies </Link>
+          <div className="three columns" style={styles.textStyle}>
+          <Link to='/moviesearch' style={styles.linksStyle}>Search Movies </Link>
+          </div>
+          <div className="three columns" style={styles.textStyle}>
+            {button}
           </div>
       </Toolbar>
     </div>
