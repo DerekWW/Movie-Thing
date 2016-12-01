@@ -5,29 +5,34 @@ import FontIcon from 'material-ui/FontIcon';
 import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-more';
 import MenuItem from 'material-ui/MenuItem';
 import DropDownMenu from 'material-ui/DropDownMenu';
-import { black, grey100, grey800, grey900 } from 'material-ui/styles/colors';
+import { black, grey100, grey200, grey800, grey900 } from 'material-ui/styles/colors';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 
 const styles = {
   pageStyle: {
-    backgroundColor: grey100,
+    backgroundColor: grey200,
+    fontFamily: 'Merriweather'
   },
   toolbarStyle: {
     backgroundColor: grey900,
-    verticalAlign: 'middle',
+    alignItems: 'center',
   },
   titleStyle: {
-    color: grey100,
-    fontSize: 20,
+    color: grey200,
+    fontSize: 28,
     textDecoration: 'none',
     fontFamily: 'Limelight',
-    verticalAlign: 'middle',
   },
   linksStyle: {
-    color: grey100,
+    color: grey200,
     fontSize: 14,
     textDecoration: 'none',
+    fontFamily: 'Limelight',
   },
+  textStyle: {
+    textAlign: 'right',
+    verticalAlign: 'center',
+  }
 };
 
 const Header = React.createClass({
@@ -48,10 +53,10 @@ const Header = React.createClass({
           <div className="six columns">
           <Link to='/' style={styles.titleStyle}>Movie Thing </Link>
           </div>
-          <div className="three columns">
+          <div className="two columns offset-by-five" style={styles.textStyle}>
           <Link to='/friends' style={styles.linksStyle}> Find Friends </Link>
           </div>
-          <div className="three columns">
+          <div className="two columns" style={styles.textStyle}>
           <Link to='/moviesearch' style={styles.linksStyle}>Find Movies </Link>
           </div>
       </Toolbar>

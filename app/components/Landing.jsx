@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './Header';
 import Login from './LogIn';
 import SignUp from './SignUp';
-import { black, grey100, grey800, grey900 } from 'material-ui/styles/colors';
+import { black, grey100, grey200, grey800, grey900, red400 } from 'material-ui/styles/colors';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -13,11 +13,13 @@ import MovieDialog from './MovieDialog';
 
 const styles = {
   pageStyle: {
-    backgroundColor: grey100,
+    backgroundColor: grey200,
     textAlign: 'center',
   },
   raisedButtonStyle: {
-    margin: 12,
+    margin: 15,
+    color: red400,
+    fontFamily: 'Merriweather'
   },
   root: {
     display: 'flex',
@@ -28,6 +30,24 @@ const styles = {
     display: 'flex',
     flexWrap: 'nowrap',
     overflowX: 'auto',
+    paddingTop: 30,
+    paddingBottom: 30,
+  },
+  h2: {
+    fontFamily: 'Limelight',
+    fontSize: 42,
+  },
+  introStyle: {
+    paddingTop: 10,
+    fontSize: 16,
+    textAlign: 'center',
+  },
+  containerStyle: {
+    textAlign: 'center',
+    paddingBottom: 20,
+  },
+  titleStyle: {
+    textAlign: 'left',
   },
 }
 
@@ -147,13 +167,16 @@ const Landing = React.createClass({
     return (
       <div style={styles.pageStyle}>
         <div className="row">
-          <h2>Movie Thing</h2>
-          <h5>Movies were made to be seen in the theater, not on your laptop.</h5>
-          <h6>Use Movie Thing to find out which movies your friends want to see. We are here to help you avoid the spoiler alerts, take a break from the outside world, and enjoy that big bucket of popcorn.</h6>
+          <div className="container" style={styles.containerStyle}>
+            <h2 className="row" style={styles.h2}>Movie Thing</h2>
+            <div className="eight columns offset-by-two" style={styles.introStyle}>Movies were made to be seen in the theater, not on your laptop.
+            <br /> Use Movie Thing to find out which movies your friends want to see. <br />
+            We are here to help you avoid the spoiler alerts, take a break from the outside world, and enjoy that big bucket of popcorn.</div>
+          </div>
           <div className="row">
             <RaisedButton
               label="Signup"
-              secondary={true}
+              // secondary={false}
               style={styles.raisedButtonStyle}
               onTouchTap={this.handleOpenSignup}
             />
@@ -169,7 +192,7 @@ const Landing = React.createClass({
 
               <RaisedButton
                 label="Login"
-                secondary={true}
+                // secondary={false}
                 style={styles.raisedButtonStyle}
                 onTouchTap={this.handleOpenLogin}
               />
@@ -189,7 +212,7 @@ const Landing = React.createClass({
             {this.state.landingMoviesArray.map((tile, index) => (
               <GridTile
                 key={index}
-                // title={tile.title}
+                title={tile.movie_title}
                 style={styles.titleStyle}
                 titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
               >
