@@ -34,6 +34,7 @@ const styles = {
 const Landing = React.createClass({
   getInitialState(){
     return {
+      signupOpen: false,
       open: false,
       landingMoviesArray: [
         {
@@ -101,11 +102,15 @@ const Landing = React.createClass({
 },
 
   handleOpenSignup(){
-    this.setState({open: true});
+    this.setState({signupOpen: true});
   },
 
   handleOpenLogin(){
     this.setState({open: true});
+  },
+
+  handleCloseSignup(){
+    this.setState({open: false});
   },
 
   handleClose(){
@@ -118,57 +123,55 @@ const Landing = React.createClass({
         label="Submit"
         primary={true}
         keyboardFocused={true}
-        onTouchTap={this.handleClose}
+        onClick={this.handleClose}
       />,
       <FlatButton
         label="Close"
         primary={true}
-        onTouchTap={this.handleClose}
+        onClick={this.handleClose}
       />,
     ];
     return (
       <div style={styles.pageStyle}>
-
         <div className="row">
-          <div><h2>Movie Thing</h2></div>
-          <div><h5>Movies were made to be seen in the theater, not on your laptop.</h5></div>
-          <div><h6>Use Movie Thing to find out which movies your friends want to see. We are here to help you avoid the spoiler alerts, take a break from the outside world, and enjoy that big bucket of popcorn.</h6></div>
-          <div className="row"> 
-          <RaisedButton
-            label="Signup"
-            secondary={true}
-            style={styles.raisedButtonStyle}
-            onTouchTap={this.handleOpenSignup}
-          />
-          <Dialog
-            title="Sign up for Movie Thing"
-            actions={actions}
-            modal={false}
-            open={this.state.open}
-            onRequestClose={this.handleClose}
-            >
-              <SignUp />
-            </Dialog>
-
+          <h2>Movie Thing</h2>
+          <h5>Movies were made to be seen in the theater, not on your laptop.</h5>
+          <h6>Use Movie Thing to find out which movies your friends want to see. We are here to help you avoid the spoiler alerts, take a break from the outside world, and enjoy that big bucket of popcorn.</h6>
+          <div className="row">
             <RaisedButton
-              label="Login"
+              label="Signup"
               secondary={true}
               style={styles.raisedButtonStyle}
-              onTouchTap={this.handleOpenLogin}
+              onTouchTap={this.handleOpenSignup}
             />
-            <Dialog
-              title="Login to your Movie Thing Account"
-              actions={actions}
-              modal={false}
-              open={this.state.open}
-              onRequestClose={this.handleClose}
-              >
-                <Login />
-              </Dialog>
+              <Dialog
+                title="Sign up for Movie Thing"
+                actions={actions}
+                modal={false}
+                open={this.state.signupOpen}
+                onRequestClose={this.handleClose}
+                >
+                  <SignUp />
+                </Dialog>
+
+              <RaisedButton
+                label="Login"
+                secondary={true}
+                style={styles.raisedButtonStyle}
+                onTouchTap={this.handleOpenLogin}
+              />
+                <Dialog
+                  title="Login to your Movie Thing"
+                  actions={actions}
+                  modal={false}
+                  open={this.state.open}
+                  onRequestClose={this.handleClose}
+                  >
+                    <Login />
+                  </Dialog>
               </div>
-        </div>
-        <div className="container">
-        <div>
+            </div>
+            <div>
           <GridList style={styles.gridList} cols={2.2} cellHeight={342}>
             {this.state.landingMoviesArray.map((tile, index) => (
               <GridTile
@@ -186,7 +189,6 @@ const Landing = React.createClass({
               </GridTile>
             ))}
           </GridList>
-        </div>
         </div>
       </div>
     );

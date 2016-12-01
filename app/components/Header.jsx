@@ -40,8 +40,6 @@ const Header = React.createClass({
     return (
       <div className="row">
       <Toolbar style={styles.toolbarStyle}>
-        <ToolbarGroup>
-          {/* <ToolbarTitle text="Movie Thing" /> */}
           <div className="six columns">
           <Link to='/' style={styles.titleStyle}>Movie Thing </Link>
           </div>
@@ -59,8 +57,6 @@ const Header = React.createClass({
               <MenuItem value={2} primaryText="LogIn" className="dropdown-menu"/>
             </DropDownMenu>
           </ToolbarGroup> */}
-          <FontIcon className="muidocs-icon-custom-sort" />
-        </ToolbarGroup>
       </Toolbar>
     </div>
     );
