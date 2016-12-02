@@ -11,6 +11,7 @@ const styles = {
     backgroundColor: grey200,
     fontFamily: 'Merriweather',
     height: '100vh',
+    paddingTop: 20,
   },
 }
 
@@ -20,12 +21,13 @@ const Home = React.createClass({
     return (
       <div className="container" style={styles.pageStyle}>
         <div style={styles.pageStyle}>
-        <h4>Your Movies</h4>
+        <h5>Your favorites</h5>
         <UserMovies
           userMoviesArray={this.props.userMoviesArray}
           updateMovies={this.props.updateMovies}
         />
-        <h4>Friends movies</h4>
+        <br />
+        <h5>Friends Favorites</h5>
         <FriendMovies
           friendsMoviesArray={this.props.friendsMoviesArray}
         />
