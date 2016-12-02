@@ -53,7 +53,7 @@ const MovieSearch = React.createClass ({
             <MovieSearchTiles
               moviesArray={this.state.movies}
               movieIdSearch={this.movieIdSearch}
-              updateMovies={this.props.movies}
+              updateMovies={this.props.updateMovies}
             />
           </div>
        </div>

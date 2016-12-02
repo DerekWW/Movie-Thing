@@ -107,7 +107,7 @@ router.post('/api/user_movies', authorize, (req, res, next) => {
     res.send(response);
   })
   .catch(err => {
-    next(err)
+    console.log(err);
   })
 
 });
@@ -124,7 +124,7 @@ router.post('/api/user_movies', authorize, (req, res, next) => {
     })
     .catch((err) => {
       console.log(err);
-    })
+    });
 
   })
 

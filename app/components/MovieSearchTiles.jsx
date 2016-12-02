@@ -12,7 +12,7 @@ const styles = {
     justifyContent: 'space-around',
   },
   gridList: {
-    width: '70%',
+    width: '100%',
     height: '100%',
     overflowY: 'auto',
   },
@@ -27,7 +27,7 @@ const MovieSearchTiles = React.createClass ({
         <GridList
           cellHeight={342}
           style={styles.gridList}
-          cols={5}
+          cols={4}
           >
             <Subheader>Search Results</Subheader>
             {this.props.moviesArray.map((tile, index) => (
