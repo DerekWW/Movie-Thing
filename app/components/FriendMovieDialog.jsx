@@ -25,7 +25,7 @@ const FriendMovieDialog = React.createClass ({
         label="Close"
         primary={true}
         onTouchTap={this.handleClose}
-      />,
+      />
     ];
 
     return (

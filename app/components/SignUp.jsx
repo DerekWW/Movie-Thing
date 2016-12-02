@@ -64,6 +64,7 @@ const SignUp = React.createClass({
     .then((response) => {
       this.props.checkIsLoggedIn();
       console.log(response);
+      this.props.updateMovies();
     })
     .catch((err) => {
       console.error(err);

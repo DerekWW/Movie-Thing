@@ -186,6 +186,7 @@ const Landing = React.createClass({
                   <SignUp
                     checkIsLoggedIn={this.props.checkIsLoggedIn}
                     handleCloseSignup={this.handleCloseSignup}
+                    updateMovies={this.props.updateMovies}
                   />
                 </Dialog>
 
@@ -206,6 +207,7 @@ const Landing = React.createClass({
                     <Login
                       checkIsLoggedIn={this.props.checkIsLoggedIn}
                       handleCloseLogin={this.handleCloseLogin}
+                      updateMovies={this.props.updateMovies}
                     />
                   </Dialog>
               </div>
