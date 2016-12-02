@@ -25,7 +25,7 @@ const MovieDialog = React.createClass ({
     .then(res => {
       this.setState({open: false});
     }).then(() => {
-
+      this.props.updateMovies();
     })
   },
 
