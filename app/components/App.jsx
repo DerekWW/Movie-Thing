@@ -57,6 +57,7 @@ const App = React.createClass({
               checkIsLoggedIn={this.checkIsLoggedIn}
             />
             <Main
+              isLoggedIn={this.state.isLoggedIn}
               checkIsLoggedIn={this.checkIsLoggedIn}
             />
             <Footer />

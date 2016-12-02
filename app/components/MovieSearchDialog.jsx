@@ -5,14 +5,18 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 
 const MovieSearchDialog = React.createClass ({
-  getInitialState(){
+  getInitialState() {
     return {
       open: false,
     };
   },
 
-  handleOpen(){
+  handleOpen() {
     this.setState({open: true});
+  },
+
+  handleClose() {
+    this.setState({ open: false });
   },
 
 

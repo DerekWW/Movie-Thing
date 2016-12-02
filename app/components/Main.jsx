@@ -5,6 +5,7 @@ import MovieSearch from './MovieSearch';
 import LogIn from './LogIn';
 import SignUp from './SignUp';
 import { Match, Miss } from 'react-router';
+import Redirect from 'react-router/Redirect'
 import MenuItem from 'material-ui/MenuItem';
 import Landing from './Landing';
 
@@ -127,35 +128,44 @@ const Main = React.createClass({
   render(){
     return (
       <div>
-        <h3></h3>
-        <Match
-          pattern="/" exactly render={
-            () => <Home
+        <Match pattern="/" exactly render={
+          () => <Landing checkIsLoggedIn={this.props.checkIsLoggedIn} />
+        }
+        />
+        <Match pattern="/home" render={
+            () =>(
+              !this.props.isLoggedIn ? (
+                <Redirect to="/" />
+              ) : (
+            <Home
               { ...this.state }
-              component={Home}
               mutualMoviesArray={this.state.mutualMoviesArray}
               userMoviesArray={this.state.userMoviesArray}
               friendsMoviesArray={this.state.friendsMoviesArray}
-          />
-        }/>
+          />)
+        )}/>
         <Match pattern="/friends" render={
-          () => <Friends
+          () =>(
+            !this.props.isLoggedIn ? (
+              <Redirect to="/" />
+            ) : (
+          <Friends
             { ...this.state }
             component={Friends}
             usersArray={this.state.usersArray}
             friends={this.state.friends}
             handleAddToFriendsList={this.handleAddToFriendsList}
-          />
-        }/>
+          />)
+        )}/>
         <Match pattern="/moviesearch" render={
-          () => <MovieSearch
+          () =>(
+            !this.props.isLoggedIn ? (
+              <Redirect to="/" />
+            ) : (
+          <MovieSearch
             { ...this.state }
           />
-        }/>
-        <Match pattern="/landing" render={
-          () => <Landing checkIsLoggedIn={this.props.checkIsLoggedIn} />
-          }
-        />
+        ))}/>
       </div>
     );
   }

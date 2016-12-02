@@ -64,25 +64,32 @@ const Header = React.createClass({
     const isLoggedIn = this.props.isLoggedIn;
 
     let button = null;
+    let friendsLink = null;
+    let moviesLink = null;
+
     if(isLoggedIn) {
       button = <FlatButton
         label="Logout"
         style={styles.linksStyle}
         onClick={this.handleLogout}
       />
+
+      friendsLink =  <Link to='/friends' style={styles.linksStyle}> Find Friends </Link>
+      moviesLink =   <Link to='/moviesearch' style={styles.linksStyle}>Search Movies </Link>
+
     }
 
     return (
       <div className="row" style={styles.pageStyle}>
       <Toolbar style={styles.toolbarStyle}>
           <div className="four columns">
-          <Link to='/' style={styles.titleStyle}>Movie Thing </Link>
+          <Link to='/home' style={styles.titleStyle}>Movie Thing </Link>
           </div>
           <div className="three columns" style={styles.textStyle}>
-          <Link to='/friends' style={styles.linksStyle}> Find Friends </Link>
+            {friendsLink}
           </div>
           <div className="three columns" style={styles.textStyle}>
-          <Link to='/moviesearch' style={styles.linksStyle}>Search Movies </Link>
+            {moviesLink}
           </div>
           <div className="three columns" style={styles.textStyle}>
             {button}
