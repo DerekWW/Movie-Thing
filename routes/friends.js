@@ -72,17 +72,35 @@ router.post('/api/friends', authorize, (req, res, next) => {
 
 });
 
+router.post('/api/friends/check', authorize, (req, res, next) => {
+  const followerId = req.token.userId;
+  const  followedId = req.body.userId;
 
-router.delete('/api/friends/:friendId', authorize, (req, res, next) => {
+  knex('friends')
+    .where('follower_id', followerId)
+    .andWhere('followed_id', followedId)
+    .first()
+    .then((row) => {
+      if (!row) {
+         res.send(false);
+      }
+        res.send(true)
+    })
+
+})
+
+
+router.delete('/api/friends', authorize, (req, res, next) => {
   const userId = req.token.userId;
-  const friendId = req.params.friendId;
+  const friendId = req.body.friendId;
+  console.log(friendId);
 
   knex('friends')
     .where('follower_id', userId)
     .andWhere('followed_id', friendId)
     .del()
-    .then(() => {
-      res.send({ userId, friendId })
+    .then((row) => {
+      res.send(row)
     })
     .catch((err) =>{
       next(err)

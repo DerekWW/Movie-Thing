@@ -14,7 +14,9 @@ injectTapEventPlugin();
 const styles = {
   pageStyle: {
     backgroundColor: grey200,
-    fontFamily: 'Merriweather'
+    fontFamily: 'Merriweather',
+    height: '100vh',
+
   },
 };
 
