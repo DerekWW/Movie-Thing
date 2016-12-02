@@ -19,9 +19,6 @@ const Home = React.createClass({
     return (
       <div className="container">
         <div>
-        <div>
-        <Link to='/landing'> Landing Page </Link>
-        </div>
         <h4>Your Movies</h4>
         <UserMovies
           userMoviesArray={this.props.userMoviesArray}
