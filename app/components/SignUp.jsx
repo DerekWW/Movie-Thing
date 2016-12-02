@@ -6,8 +6,9 @@ import { black, grey100, grey200, grey800, grey900, red400 } from 'material-ui/s
 
 const styles = {
   formStyle: {
-    backgroundColor: grey200,
-    fontFamily: 'Merriweather'
+    fontFamily: 'Merriweather',
+    textAlign: 'center',
+    fontSize: 24,
   },
   errorStyle: {
     color: red400,
@@ -17,9 +18,13 @@ const styles = {
   },
   floatingLabelStyle: {
     color: red400,
+    fontFamily: 'Merriweather'
+
   },
   floatingLabelFocusStyle: {
     color: grey800,
+    fontFamily: 'Merriweather'
+
   },
   buttonStyle: {
     margin: 12,
@@ -78,7 +83,8 @@ const SignUp = React.createClass({
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} style={styles.formStyle}>
+      <form onSubmit={this.handleSubmit}>
+        <div style={styles.formStyle}>Sign up for Movie Thing</div>
         <TextField
           name="firstName"
           value={this.state.firstName}
@@ -122,6 +128,7 @@ const SignUp = React.createClass({
           floatingLabelText="Create Password"
           errorText="This field is required."
           type='password'
+          style={styles.floatingLabelFocusStyle}
           errorStyle={styles.floatingLabelStyle}
         />
         <br />

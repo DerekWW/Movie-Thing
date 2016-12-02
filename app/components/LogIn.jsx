@@ -5,9 +5,11 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { black, grey100, grey200, grey800, grey900, red400 } from 'material-ui/styles/colors';
 
 const styles = {
-  pageStyle: {
+  formStyle: {
     backgroundColor: grey200,
-    fontFamily: 'Merriweather'
+    fontFamily: 'Merriweather',
+    textAlign: 'center',
+    fontSize: 24,
   },
   errorStyle: {
     color: red400,
@@ -17,12 +19,15 @@ const styles = {
   },
   floatingLabelStyle: {
     color: red400,
+    fontFamily: 'Merriweather'
   },
   floatingLabelFocusStyle: {
     color: grey800,
+    fontFamily: 'Merriweather'
   },
   buttonStyle: {
     margin: 12,
+    backgroundColor: red400,
   }
 };
 
@@ -62,6 +67,7 @@ const LogIn = React.createClass({
   render() {
     return (
         <form onSubmit={this.handleSubmit}>
+          <div style={styles.formStyle}>Log In to Movie Thing</div>
           <TextField
             name="username"
             value={this.state.username}
@@ -75,14 +81,16 @@ const LogIn = React.createClass({
             name="password"
             value={this.state.password}
             onChange={this.handleChange}
-            floatingLabelText="Create Password"
-            errorText="This field is required."
+            floatingLabelText="Password"
+            // errorText="This field is required."
             type='password'
+            floatingLabelStyle={styles.floatingLabelStyle}
             errorStyle={styles.floatingLabelStyle}
           />
           <br />
-          <RaisedButton type="submit" label="LogIn" primary={true} style={styles.buttonStyle}/>
+          <RaisedButton type="submit" label="LogIn" primary={false} style={styles.buttonStyle}/>
         </form>
+      // </div>
     );
   }
 });

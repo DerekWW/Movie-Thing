@@ -141,21 +141,22 @@ const Landing = React.createClass({
     const actionsSignup = [
       <FlatButton
         label="Submit"
-        primary={true}
+        primary={false}
         keyboardFocused={false}
         onClick={this.handleCloseSignup}
       />,
       <FlatButton
         label="Close"
-        primary={true}
+        primary={false}
         onClick={this.handleCloseSignup}
       />,
     ];
     const actionsLogin = [
       <FlatButton
         label="Close"
-        primary={true}
+        primary={false}
         onClick={this.handleCloseLogin}
+        style={{backgroundColor: grey200}}
       />,
     ];
     return (
@@ -170,17 +171,17 @@ const Landing = React.createClass({
           <div className="row">
             <RaisedButton
               label="Signup"
-              // secondary={false}
+              secondary={false}
               style={styles.raisedButtonStyle}
               onTouchTap={this.handleOpenSignup}
             />
               <Dialog
-                title="Sign up for Movie Thing"
+                // title="Sign up for Movie Thing"
                 actions={actionsSignup}
                 modal={false}
                 open={this.state.signupOpen}
                 onRequestClose={this.handleClose}
-                style={styles.pageStyle}
+                bodyStyle={{backgroundColor: grey200}}
                 >
                   <SignUp
                     checkIsLoggedIn={this.props.checkIsLoggedIn}
@@ -190,16 +191,17 @@ const Landing = React.createClass({
 
               <RaisedButton
                 label="Login"
-                // secondary={false}
+                secondary={false}
                 style={styles.raisedButtonStyle}
                 onTouchTap={this.handleOpenLogin}
               />
                 <Dialog
-                  title="Login to your Movie Thing"
+                  // title="Login to your Movie Thing"
                   actions={actionsLogin}
                   modal={false}
                   open={this.state.loginOpen}
                   onRequestClose={this.handleClose}
+                  bodyStyle={{backgroundColor: grey200}}
                   >
                     <Login
                       checkIsLoggedIn={this.props.checkIsLoggedIn}

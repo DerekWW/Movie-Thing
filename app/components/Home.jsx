@@ -17,7 +17,7 @@ const Home = React.createClass({
   render(){
     // console.log(this.props.userSearch);
     return (
-      <div className="container">
+      <div className="container" style={styles.pageStyle}>
         <div>
         <h4>Your Movies</h4>
         <UserMovies

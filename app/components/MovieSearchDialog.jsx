@@ -2,6 +2,13 @@ import React from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
+import { black, grey100, grey200, grey800, grey900, red400 } from 'material-ui/styles/colors';
+
+const styles = {
+  dialogStyle: {
+    fontFamily: 'Merriweather',
+  },
+}
 
 
 const MovieSearchDialog = React.createClass ({
@@ -70,11 +77,11 @@ const MovieSearchDialog = React.createClass ({
           open={this.state.open}
           onRequestClose={this.handleClose}
         >
-          <div>
+          <div style={styles.dialogStyle}>
           Overview: {this.props.overview}
           </div>
           <br />
-          <div>
+          <div style={styles.dialogStyle}>
           Rating: {this.props.rating}
           </div>
        </Dialog>

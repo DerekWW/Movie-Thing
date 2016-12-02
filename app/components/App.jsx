@@ -16,7 +16,6 @@ const styles = {
     backgroundColor: grey200,
     fontFamily: 'Merriweather',
     height: '100vh',
-
   },
 };
 

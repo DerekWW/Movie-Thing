@@ -7,7 +7,7 @@ const styles = {
   pageStyle: {
     backgroundColor: grey200,
     fontFamily: 'Merriweather',
-    height: '100%',
+    // background: URL("http://www.wpclipart.com/page_frames/movie/film_strip_page.png"),
   },
 }
 
