@@ -19,6 +19,10 @@ const MovieSearchDialog = React.createClass ({
     this.setState({ open: false });
   },
 
+  updateMovies(){
+    this.props.updateMovies()
+  },
+
 
 
   addToFavorites() {
@@ -34,6 +38,7 @@ const MovieSearchDialog = React.createClass ({
     }
     axios.post('/api/user_movies', movie)
     .then((res) => {
+      this.props.updateMovies()
       console.log(res);
     })
   },

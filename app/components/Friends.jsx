@@ -24,11 +24,18 @@ const Friends = React.createClass ({
   componentDidMount() {
     axios.get('/api/user_search')
       .then((res) => {
-        console.log(res);
         this.setState({ usersArray: res.data })
       })
       .catch((err) => {
-        console.error(err);
+      });
+  },
+
+  updateFriends(){
+    axios.get('/api/user_search')
+      .then((res) => {
+        this.setState({ usersArray: res.data })
+      })
+      .catch((err) => {
       });
   },
 

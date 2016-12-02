@@ -83,6 +83,26 @@ const Main = React.createClass({
         });
   },
 
+  updateMovies(){
+    axios.get('/api/user_movies/user')
+      .then((res) => {
+        console.log(res);
+        this.setState({ userMoviesArray: res.data });
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+
+      axios.get('/api/user_movies/friends')
+        .then((res) => {
+          console.log(res);
+          this.setState({ friendsMoviesArray: res.data });
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+  },
+
 
 
   handleAddToFriendsList(person) {
@@ -164,6 +184,7 @@ const Main = React.createClass({
             ) : (
           <MovieSearch
             { ...this.state }
+            updateMovies={this.updateMovies}
           />
         ))}/>
       </div>
