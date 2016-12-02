@@ -167,6 +167,7 @@ const Main = React.createClass({
               mutualMoviesArray={this.state.mutualMoviesArray}
               userMoviesArray={this.state.userMoviesArray}
               friendsMoviesArray={this.state.friendsMoviesArray}
+              updateMovies={this.updateMovies}
           />)
         )}/>
         <Match pattern="/friends" render={

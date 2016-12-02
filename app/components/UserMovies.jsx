@@ -47,6 +47,7 @@ const UserMovies = React.createClass({
                   rating={tile.movie_rating}
                   overview={tile.movie_overview}
                   id={tile.movie_id}
+                  updateMovies={this.props.updateMovies}
                 />
               </GridTile>
             ))}

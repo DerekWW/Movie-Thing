@@ -25,6 +25,7 @@ const Home = React.createClass({
         <h4>Your Movies</h4>
         <UserMovies
           userMoviesArray={this.props.userMoviesArray}
+          updateMovies={this.props.updateMovies}
         />
         <h4>Friends movies</h4>
         <FriendMovies
