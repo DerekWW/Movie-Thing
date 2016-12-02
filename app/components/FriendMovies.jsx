@@ -25,7 +25,7 @@ const styles = {
     padding: '10px'
   },
   titleStyle: {
-    color: 'rgb(0, 188, 212)',
+    color: 'rgba(239, 83, 80, 1)',
   },
 };
 
