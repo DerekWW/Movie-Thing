@@ -4,6 +4,7 @@ import Friends from './Friends';
 import MovieSearch from './MovieSearch';
 import LogIn from './LogIn';
 import SignUp from './SignUp';
+import NotFound from './NotFound';
 import { Match, Miss } from 'react-router';
 import Redirect from 'react-router/Redirect'
 import MenuItem from 'material-ui/MenuItem';
@@ -191,6 +192,7 @@ const Main = React.createClass({
             updateMovies={this.updateMovies}
           />
         ))}/>
+        {/* <Miss component={NotFound} /> */}
       </div>
     );
   }
