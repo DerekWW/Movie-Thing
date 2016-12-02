@@ -44,6 +44,7 @@ const LogIn = React.createClass({
     .then((response) => {
       this.props.checkIsLoggedIn();
       console.log(response);
+      this.props.updateMovies();
     });
 
     this.props.handleCloseLogin();

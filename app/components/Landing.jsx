@@ -7,7 +7,7 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import {GridList, GridTile} from 'material-ui/GridList';
-import MovieDialog from './MovieDialog';
+import FriendMovieDialog from './MovieDialog';
 
 
 
@@ -217,7 +217,7 @@ const Landing = React.createClass({
                 style={styles.titleStyle}
                 titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
               >
-                <MovieDialog
+                <FriendMovieDialog
                   src={tile.movie_poster}
                   title={tile.movie_title}
                   rating={tile.movie_rating}

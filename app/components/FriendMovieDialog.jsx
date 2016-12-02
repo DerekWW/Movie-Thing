@@ -4,7 +4,7 @@ import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 
 
-const MovieDialog = React.createClass ({
+const FriendMovieDialog = React.createClass ({
   getInitialState(){
     return {
       open: false,
@@ -19,26 +19,8 @@ const MovieDialog = React.createClass ({
     this.setState({open: false});
   },
 
-  handleClick() {
-    let movieId = this.props.id
-    axios.delete(`/api/user_movies`, {data: {movieId}})
-    .then(res => {
-      this.setState({open: false});
-    }).then(() => {
-      this.props.updateMovies();
-    })
-  },
-
-
-
   render(){
     const actions = [
-      <FlatButton
-        label="Remove from Favorites"
-        primary={true}
-        // keyboardFocused={true}
-        onTouchTap={this.handleClick}
-      />,
       <FlatButton
         label="Close"
         primary={true}
@@ -69,4 +51,4 @@ const MovieDialog = React.createClass ({
   }
 })
 
-export default MovieDialog;
+export default FriendMovieDialog;

@@ -28,9 +28,9 @@ const Home = React.createClass({
         <FriendMovies
           friendsMoviesArray={this.props.friendsMoviesArray}
         />
-        <MutualMovies
+        {/* <MutualMovies
           mutualMoviesArray={this.props.mutualMoviesArray}
-        />
+        /> */}
         </div>
       </div>
     );
