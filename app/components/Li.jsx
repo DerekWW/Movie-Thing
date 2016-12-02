@@ -1,7 +1,12 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
+import { black, grey100, grey200, grey800, grey900, red400 } from 'material-ui/styles/colors';
 
-
+const styles = {
+  buttonStyle: {
+    disabledBackgroundColor: red400,
+  },
+}
 
 const Li = React.createClass({
 
@@ -65,14 +70,16 @@ const Li = React.createClass({
 
     if(!isFriend) {
       button = <RaisedButton
-        primary={true}
+        primary={false}
         label="Follow"
         onClick={this.addFriend}
+        style={styles.buttonStyle}
+        backgroundColor="#EF5350"
       />
     }
     if(isFriend){
       button = <RaisedButton
-        secondary={true}
+        secondary={false}
         label="Unfollow"
         onClick={this.removeFriend}
       />
@@ -80,7 +87,8 @@ const Li = React.createClass({
 
     return (
       <li>
-        <div>{button}{" " + this.props.user.firstName + '' + this.props.user.lastName}</div>
+        <div>
+          {button} {this.props.user.username} : {this.props.user.firstName} {this.props.user.lastName}</div>
       </li>
     );
 

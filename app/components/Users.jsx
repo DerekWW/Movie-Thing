@@ -8,6 +8,12 @@ import Divider from 'material-ui/Divider';
 import ActionInfo from 'material-ui/svg-icons/action/info';
 import Li from './Li'
 
+const styles = {
+  ulStyle: {
+    listStyleType: 'none',
+  }
+}
+
 const Users = React.createClass({
 
 
@@ -21,8 +27,9 @@ const Users = React.createClass({
         user={user}
       />
     })
+    console.log(userlist);
     return (
-        <ul>
+        <ul style={styles.ulStyle}>
           { userlist }
         </ul>
     )

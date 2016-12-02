@@ -29,7 +29,7 @@ const MovieSearchTiles = React.createClass ({
           style={styles.gridList}
           cols={4}
           >
-            <Subheader>Search Results</Subheader>
+            {/* <Subheader>Search Results</Subheader> */}
             {this.props.moviesArray.map((tile, index) => (
               <GridTile
                 key={index}

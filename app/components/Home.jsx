@@ -9,7 +9,8 @@ import { black, grey100, grey200, grey800, grey900, red400 } from 'material-ui/s
 const styles = {
   pageStyle: {
     backgroundColor: grey200,
-    fontFamily: 'Merriweather'
+    fontFamily: 'Merriweather',
+    height: '100vh',
   },
 }
 
@@ -18,7 +19,7 @@ const Home = React.createClass({
     // console.log(this.props.userSearch);
     return (
       <div className="container" style={styles.pageStyle}>
-        <div>
+        <div style={styles.pageStyle}>
         <h4>Your Movies</h4>
         <UserMovies
           userMoviesArray={this.props.userMoviesArray}

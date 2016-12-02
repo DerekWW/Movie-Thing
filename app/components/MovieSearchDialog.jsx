@@ -3,6 +3,7 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import { black, grey100, grey200, grey800, grey900, red400 } from 'material-ui/styles/colors';
+// import Snackbar from 'material-ui/Snackbar';
 
 const styles = {
   dialogStyle: {
@@ -85,6 +86,12 @@ const MovieSearchDialog = React.createClass ({
           Rating: {this.props.rating}
           </div>
        </Dialog>
+       {/* <Snackbar
+          open={this.state.open}
+          message="Movie added to favorites"
+          autoHideDuration={4000}
+          onRequestClose={this.handleClose}
+        /> */}
       </div>
     );
   }

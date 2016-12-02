@@ -122,7 +122,6 @@ const Main = React.createClass({
     const newFriendsArray = this.state.friends.concat(person);
 
     this.setState({ friends: newFriendsArray });
-
   },
 
   handleAddToMoviesList(movie) {

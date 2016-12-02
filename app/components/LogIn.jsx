@@ -49,6 +49,7 @@ const LogIn = React.createClass({
     .then((response) => {
       this.props.checkIsLoggedIn();
       console.log(response);
+      console.log(user);
       this.props.updateMovies();
     });
 

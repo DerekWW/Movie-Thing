@@ -9,9 +9,14 @@ import { black, grey100, grey200, grey800, grey900, red400 } from 'material-ui/s
 const styles = {
   pageStyle: {
     backgroundColor: grey200,
-    fontFamily: 'Merriweather'
+    fontFamily: 'Merriweather',
+    paddingTop: 20,
   },
-  marginRight: 20,
+  titleStyle: {
+    textAlign: 'center',
+  }
+
+  // marginRight: 20,
 };
 
 const Friends = React.createClass ({
@@ -41,8 +46,8 @@ const Friends = React.createClass ({
 
   render() {
     return (
-      <div>
-        <h3>Friends Search</h3>
+      <div className="container">
+        <h5 style={styles.titleStyle}>Find your Friends</h5>
         <Users
           usersArray={this.state.usersArray}
         />
