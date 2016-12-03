@@ -45,8 +45,8 @@ const MovieSearchTiles = React.createClass ({
                     id={tile.id}
                     embedLink={tile.embed_link}
                     updateMovies={this.props.updateMovies}
+                    snackBar={this.props.snackBar}
                   />
-                  {/* <img src={tile.poster_240x342} /> */}
                 </GridTile>
               ))}
             </GridList>

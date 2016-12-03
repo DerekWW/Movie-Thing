@@ -3,7 +3,7 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import { black, grey100, grey200, grey800, grey900, red400 } from 'material-ui/styles/colors';
-import Snackbar from 'material-ui/Snackbar';
+// import Snackbar from 'material-ui/Snackbar';
 
 const styles = {
   dialogStyle: {
@@ -16,6 +16,7 @@ const MovieSearchDialog = React.createClass ({
   getInitialState() {
     return {
       open: false,
+      // openSnack: false,
     };
   },
 
@@ -47,6 +48,7 @@ const MovieSearchDialog = React.createClass ({
     axios.post('/api/user_movies', movie)
     .then((res) => {
       this.props.updateMovies()
+      this.props.snackBar()
       console.log(res);
     })
   },
@@ -58,7 +60,7 @@ const MovieSearchDialog = React.createClass ({
       <FlatButton
         label="Add to Favorites"
         primary={true}
-        keyboardFocused={true}
+        keyboardFocused={false}
         onTouchTap={this.addToFavorites}
       />,
       <FlatButton
@@ -66,6 +68,7 @@ const MovieSearchDialog = React.createClass ({
         primary={true}
         onTouchTap={this.handleClose}
       />,
+
     ];
 
     return (
@@ -86,12 +89,12 @@ const MovieSearchDialog = React.createClass ({
           Rating: {this.props.rating}
           </div>
        </Dialog>
-       <Snackbar
+       {/* <Snackbar
           open={this.state.open}
           message="Movie added to favorites"
           autoHideDuration={4000}
           onRequestClose={this.handleClose}
-        />
+        /> */}
       </div>
     );
   }

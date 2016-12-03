@@ -33,7 +33,7 @@ const MutualMoviesDialog = React.createClass ({
       <FlatButton
         label="Go to the movies"
         primary={true}
-        keyboardFocused={true}
+        keyboardFocused={false}
         onTouchTap={this.handleClose}
       />,
      <FlatButton

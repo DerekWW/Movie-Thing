@@ -7,7 +7,7 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import {GridList, GridTile} from 'material-ui/GridList';
-import FriendMovieDialog from './MovieDialog';
+import FriendMovieDialog from './FriendMovieDialog';
 
 
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import Filter from './Filter';
-import MovieSearchTiles from './MovieSearchTiles'
+import MovieSearchTiles from './MovieSearchTiles';
+import Snackbar from 'material-ui/Snackbar';
 import { black, grey100, grey200, grey800, grey900, red400 } from 'material-ui/styles/colors';
 
 const styles = {
@@ -15,6 +16,7 @@ const MovieSearch = React.createClass ({
 
   getInitialState() {
     return {
+      openSnack: false,
       movies: [],
       searchText: '',
     }
@@ -22,7 +24,6 @@ const MovieSearch = React.createClass ({
 
   movieSearch() {
     const movieText = { movieSearch: this.state.searchText };
-    console.log(movieText);
     axios.post('/api/movie_search/title', movieText)
       .then((res) => {
         this.setState({ movies: res.data, searchText: '' })
@@ -35,7 +36,14 @@ const MovieSearch = React.createClass ({
 
   updateSearch(text) {
     this.setState({ searchText: text })
-    console.log(this.state.searchText);
+  },
+
+  snackBar() {
+    this.setState({ openSnack: true })
+  },
+
+  handleClose() {
+    this.setState({ openSnack: false })
   },
 
   render () {
@@ -54,7 +62,15 @@ const MovieSearch = React.createClass ({
               moviesArray={this.state.movies}
               movieIdSearch={this.movieIdSearch}
               updateMovies={this.props.updateMovies}
+              snackBar={this.snackBar}
             />
+            <Snackbar
+               open={this.state.openSnack}
+               message="Movie added to favorites"
+               autoHideDuration={2000}
+               onRequestClose={this.handleClose}
+               bodyStyle={{backgroundColor: red400}}
+             />
           </div>
        </div>
      </div>

@@ -33,7 +33,7 @@ const MovieDialog = React.createClass ({
       <FlatButton
         label="Remove from Favorites"
         primary={true}
-        // keyboardFocused={true}
+        // keyboardFocused={false}
         onTouchTap={this.handleClick}
       />,
       <FlatButton

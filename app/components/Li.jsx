@@ -71,7 +71,7 @@ const Li = React.createClass({
     if(!isFriend) {
       button = <RaisedButton
         primary={false}
-        label="Follow"
+        label=" Follow "
         onClick={this.addFriend}
         style={styles.buttonStyle}
         backgroundColor="#EF5350"
