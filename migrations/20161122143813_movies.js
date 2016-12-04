@@ -1,5 +1,7 @@
 'use strict';
 
+/* eslint-disable new-cap*/
+
 exports.up = function(knex) {
   return knex.schema.createTable('movies', (table) => {
     table.integer('movie_id').notNullable().unique().primary();

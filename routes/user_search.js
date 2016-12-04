@@ -4,9 +4,10 @@ const boom = require('boom');
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const knex = require('../knex');
-const { camelizeKeys, decamelizeKeys } = require('humps');
+const { camelizeKeys } = require('humps');
 
-// eslint-disable-next-line new-cap
+/* eslint-disable new-cap, no-console*/
+
 const router = express.Router();
 
 const authorize = function(req, res, next) {
@@ -23,27 +24,22 @@ const authorize = function(req, res, next) {
   });
 };
 
-router.get('/api/user_search', (req, res, next) => {
-    knex.select('first_name', 'last_name', 'id', 'username')
-      .from('users')
-      // .whereNot('id', req.token.id)
-      .then((exists) => {
-        if (!exists) {
-          throw boom.create(400, 'No such user found');
-        }
+router.get('/api/user_search', authorize, (req, res, next) => {
+  knex.select('first_name', 'last_name', 'id', 'username')
+  .from('users')
+  .then((exists) => {
+    if (!exists) {
+      throw boom.create(400, 'No such user found');
+    }
 
-        const user = camelizeKeys(exists)
+    const user = camelizeKeys(exists);
 
-        res.send(user);
-
-      })
-      .catch((err) => {
-        console.error(err);
-        next(err)
-      })
-
-
-
+    res.send(user);
+  })
+  .catch((err) => {
+    console.error(err);
+    next(err);
+  });
 });
 
 module.exports = router;

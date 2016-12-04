@@ -33,10 +33,10 @@ const FriendMovies = React.createClass({
         <GridList cellHeight={342} cols={2.2} style={styles.gridList}>
           {this.props.friendsMoviesArray.map((tile, index) => (
             <GridTile
-              key={index}
-              title={tile.movie_title}
               actionIcon={<IconButton><StarBorder color="rgb(0, 188, 212)" /></IconButton>}
+              key={index}
               style={styles.titleStyle}
+              title={tile.movie_title}
               titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
             >
               <FriendMovieDialog

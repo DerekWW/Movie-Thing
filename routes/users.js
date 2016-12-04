@@ -1,5 +1,7 @@
 'use strict';
 
+/* eslint-disable new-cap, no-console, prefer-const, max-len*/
+
 const bcrypt = require('bcrypt-as-promised');
 const boom = require('boom');
 const express = require('express');
@@ -12,6 +14,7 @@ const router = express.Router();
 
 router.post('/api/users', (req, res, next) => {
   let { firstName, lastName, email, password, username } = req.body;
+
   console.log(req.body);
 
   if (!firstName || !firstName.trim()) {

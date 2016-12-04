@@ -1,25 +1,21 @@
-import AutoComplete from 'material-ui/AutoComplete';
-import ContentAdd from 'material-ui/svg-icons/content/add';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import MenuItem from 'material-ui/MenuItem';
+import { grey200 } from 'material-ui/styles/colors';
 import React from 'react';
 import Users from './Users';
-import { black, grey100, grey200, grey800, grey900, red400 } from 'material-ui/styles/colors';
 
 const styles = {
   pageStyle: {
     backgroundColor: grey200,
     fontFamily: 'Merriweather',
-    paddingTop: 20,
+    paddingTop: 20
   },
   titleStyle: {
-    textAlign: 'center',
+    textAlign: 'center'
   }
 
   // marginRight: 20,
 };
 
-const Friends = React.createClass ({
+const Friends = React.createClass({
   getInitialState() {
     return {
       usersArray: [],
@@ -29,18 +25,20 @@ const Friends = React.createClass ({
   componentDidMount() {
     axios.get('/api/user_search')
       .then((res) => {
-        this.setState({ usersArray: res.data })
+        this.setState({ usersArray: res.data });
       })
       .catch((err) => {
+        console.error(err);
       });
   },
 
-  updateFriends(){
+  updateFriends() {
     axios.get('/api/user_search')
       .then((res) => {
-        this.setState({ usersArray: res.data })
+        this.setState({ usersArray: res.data });
       })
       .catch((err) => {
+        console.error(err);
       });
   },
 

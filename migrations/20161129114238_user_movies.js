@@ -1,5 +1,7 @@
 'use strict';
 
+/* eslint-disable new-cap*/
+
 exports.up = function(knex) {
   return knex.schema.createTable('user_movies', (table) => {
     table.increments();

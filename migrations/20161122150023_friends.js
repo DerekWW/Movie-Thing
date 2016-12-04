@@ -1,5 +1,7 @@
 'use strict';
 
+/* eslint-disable new-cap*/
+
 exports.up = function(knex) {
   return knex.schema.createTable('friends', (table) => {
     table.increments();

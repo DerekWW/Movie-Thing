@@ -1,13 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router';
-import IconMenu from 'material-ui/IconMenu';
-import FontIcon from 'material-ui/FontIcon';
-import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-more';
-import MenuItem from 'material-ui/MenuItem';
-import DropDownMenu from 'material-ui/DropDownMenu';
+import { grey200, grey900 } from 'material-ui/styles/colors';
 import FlatButton from 'material-ui/FlatButton';
-import { black, grey100, grey200, grey800, grey900, red400 } from 'material-ui/styles/colors';
-import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
+import { Link } from 'react-router';
+import React from 'react';
+import { Toolbar } from 'material-ui/Toolbar';
+
+/* eslint-disable new-cap*/
 
 const styles = {
   pageStyle: {
@@ -37,17 +34,17 @@ const styles = {
 };
 
 const Header = React.createClass({
-  getInitialState(){
+  getInitialState() {
     return {
       value: 1
     };
   },
 
-  handleChange(event, index, value){
-    this.setState({value});
+  handleChange(event, index, value) {
+    this.setState({ value });
   },
 
-  handleLogout(){
+  handleLogout() {
     axios.delete('/api/token')
       .then(() => {
         this.props.checkIsLoggedIn();
@@ -57,9 +54,6 @@ const Header = React.createClass({
       });
   },
 
-
-
-
   render() {
     const isLoggedIn = this.props.isLoggedIn;
 
@@ -67,23 +61,22 @@ const Header = React.createClass({
     let friendsLink = null;
     let moviesLink = null;
 
-    if(isLoggedIn) {
+    if (isLoggedIn) {
       button = <FlatButton
         label="Logout"
-        style={styles.linksStyle}
         onClick={this.handleLogout}
-      />
+        style={styles.linksStyle}
+      />;
 
-      friendsLink =  <Link to='/friends' style={styles.linksStyle}> Find Friends </Link>
-      moviesLink =   <Link to='/moviesearch' style={styles.linksStyle}>Search Movies </Link>
-
+      friendsLink = <Link style={styles.linksStyle} to="/friends"> Find Friends </Link>
+      moviesLink = <Link style={styles.linksStyle} to="/moviesearch">Search Movies </Link>
     }
 
     return (
       <div className="row" style={styles.pageStyle}>
-      <Toolbar style={styles.toolbarStyle}>
+        <Toolbar style={styles.toolbarStyle}>
           <div className="four columns">
-          <Link to='/home' style={styles.titleStyle}>Movie Thing </Link>
+            <Link style={styles.titleStyle} to="/home">Movie Thing </Link>
           </div>
           <div className="three columns" style={styles.textStyle}>
             {friendsLink}
@@ -94,8 +87,8 @@ const Header = React.createClass({
           <div className="three columns" style={styles.textStyle}>
             {button}
           </div>
-      </Toolbar>
-    </div>
+        </Toolbar>
+      </div>
     );
   }
 });
