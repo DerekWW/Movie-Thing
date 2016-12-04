@@ -1,54 +1,54 @@
-import React from 'react';
 import Dialog from 'material-ui/Dialog';
+import React from 'react';
 import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
 
-
-const FriendMovieDialog = React.createClass ({
-  getInitialState(){
+const FriendMovieDialog = React.createClass({
+  getInitialState() {
     return {
-      open: false,
+      open: false
     };
   },
 
-  handleOpen(){
-    this.setState({open: true});
+  handleOpen() {
+    this.setState({ open: true });
   },
 
-  handleClose(){
-    this.setState({open: false});
+  handleClose() {
+    this.setState({ open: false });
   },
 
-  render(){
-    const actions = [
+  render() {
+    const actions =
       <FlatButton
         label="Close"
-        primary={true}
         onTouchTap={this.handleClose}
-      />
-    ];
+        primary={true}
+      />;
 
     return (
       <div>
-        <img src={this.props.src} onTouchTap={this.handleOpen} />
+        <img
+          onTouchTap={this.handleOpen}
+          src={this.props.src}
+        />
         <Dialog
-          title={this.props.title}
           actions={actions}
           modal={false}
-          open={this.state.open}
           onRequestClose={this.handleClose}
+          open={this.state.open}
+          title={this.props.title}
         >
           <div>
-          Overview: {this.props.overview}
+            Overview: {this.props.overview}
           </div>
           <br />
           <div>
-          Rating: {this.props.rating}
+            Rating: {this.props.rating}
           </div>
-       </Dialog>
+        </Dialog>
       </div>
     );
   }
-})
+});
 
 export default FriendMovieDialog;

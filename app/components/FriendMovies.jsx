@@ -1,12 +1,9 @@
-import React from 'react';
-import {GridList, GridTile} from 'material-ui/GridList';
-import IconButton from 'material-ui/IconButton';
-import StarBorder from 'material-ui/svg-icons/toggle/star-border';
+import { GridList, GridTile } from 'material-ui/GridList';
 import FriendMovieDialog from './FriendMovieDialog';
-import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
-import { black, grey100, grey200, grey800, grey900, red400 } from 'material-ui/styles/colors';
+import grey200 from 'material-ui/styles/colors';
+import IconButton from 'material-ui/IconButton';
+import React from 'react';
+import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 
 const styles = {
   pageStyle: {
@@ -16,7 +13,7 @@ const styles = {
   root: {
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'space-around',
+    justifyContent: 'space-around'
   },
   gridList: {
     display: 'flex',
@@ -25,15 +22,15 @@ const styles = {
     padding: '10px'
   },
   titleStyle: {
-    color: 'rgba(239, 83, 80, 1)',
-  },
+    color: 'rgba(239, 83, 80, 1)'
+  }
 };
 
 const FriendMovies = React.createClass({
   render() {
-    return(
+    return (
       <div style={styles.root}>
-        <GridList style={styles.gridList} cols={2.2} cellHeight={342}>
+        <GridList cellHeight={342} cols={2.2} style={styles.gridList}>
           {this.props.friendsMoviesArray.map((tile, index) => (
             <GridTile
               key={index}
@@ -43,17 +40,17 @@ const FriendMovies = React.createClass({
               titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
             >
               <FriendMovieDialog
+                overview={tile.movie_overview}
+                rating={tile.movie_rating}
                 src={tile.movie_poster}
                 title={tile.movie_title}
-                rating={tile.movie_rating}
-                overview={tile.movie_overview}
               />
             </GridTile>
           ))}
         </GridList>
       </div>
-    )
+    );
   }
-})
+});
 
 export default FriendMovies;

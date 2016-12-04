@@ -1,17 +1,16 @@
 import React from 'react';
-import { black, grey100, grey200, grey800, grey900 } from 'material-ui/styles/colors';
-
+import { grey200 } from 'material-ui/styles/colors';
 
 const styles = {
   pageStyle: {
-    backgroundColor: grey200,
-  },
-}
+    backgroundColor: grey200
+  }
+};
 
 const Footer = React.createClass({
-  render(){
+  render() {
     return (
-      <div style={styles.pageStyle}></div>
+      <div style={styles.pageStyle} />
     );
   }
 });

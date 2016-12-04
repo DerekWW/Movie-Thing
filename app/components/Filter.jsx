@@ -1,23 +1,23 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
-import { black, grey100, grey200, grey800, grey900, red400 } from 'material-ui/styles/colors';
+import { red400 } from 'material-ui/styles/colors';
 
 const styles = {
   containerStyle: {
-    padding: '10px',
+    padding: '10px'
   },
   floatingLabelStyle: {
     color: red400,
     fontFamily: 'Merriweather',
-    fontSize: 24,
+    fontSize: 24
   },
   floatingLabelFocusStyle: {
     color: red400,
     fontFamily: 'Merriweather'
-  },
+  }
 };
 
-const Filter = React.createClass ({
+const Filter = React.createClass({
 
   handleSubmit(event) {
     event.preventDefault();
@@ -25,7 +25,7 @@ const Filter = React.createClass ({
   },
 
   handleChange(event) {
-    this.props.updateSearch(event.target.value)
+    this.props.updateSearch(event.target.value);
   },
 
   render() {
@@ -33,17 +33,17 @@ const Filter = React.createClass ({
       <div className="container">
         <form onSubmit={this.handleSubmit}>
           <TextField
+            floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
+            floatingLabelStyle={styles.floatingLabelStyle}
+            floatingLabelText="Search Movies"
             name="searchText"
             onChange={this.handleChange}
-            value={this.props.searchText}
-            floatingLabelText="Search Movies"
-            floatingLabelStyle={styles.floatingLabelStyle}
-            floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
             type="text"
+            value={this.props.searchText}
           />
         </form>
       </div>
-    )
+    );
   }
 
 });
