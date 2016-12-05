@@ -1,3 +1,44 @@
 body {
   background-color: #EEEEEE;
 }
+
+.landing {
+  height: 70vh;
+  border: solid 3px #FFFFFF;
+  text-align: center;
+  color: #FFFFFF;
+  font-kerning: 1px;
+}
+
+
+.rating {
+  height: 20vh;
+  width: 60%;
+  border: solid 3px #FFFFFF;
+  margin-top: 10px;
+  margin-left: 20%;
+}
+
+.ratingDiv {
+  height: 20vh;
+  width: 30%;
+  border: solid .5px #FFFFFF;
+  border-right: solid 3px #FFFFFF;
+}
+
+.ratingTitle {
+  width: 70%;
+  height: 5vh;
+  float: right;
+  border-bottom: solid 3px #FFFFFF;
+
+}
+
+.ratingButtons {
+  width: 70%;
+  float: right;
+}
+
+.ratingRaisedButton {
+  color:'#0D5813',
+}

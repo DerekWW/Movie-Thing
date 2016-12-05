@@ -1,13 +1,15 @@
 /* eslint-disable no-console */
 
 import Friends from './Friends';
-import Home from './Home';
-import Landing from './Landing';
-import { Match } from 'react-router';
 import MovieSearch from './MovieSearch';
+import LogIn from './LogIn';
+import SignUp from './SignUp';
+import NotFound from './NotFound';
+import { Match, Miss } from 'react-router';
+import Redirect from 'react-router/Redirect'
+import MenuItem from 'material-ui/MenuItem';
+import Landing2 from './Landing2';
 import React from 'react';
-import Redirect from 'react-router/Redirect';
-import axios from 'axios';
 
 const Main = React.createClass({
   getInitialState() {
@@ -142,15 +144,13 @@ const Main = React.createClass({
             this.props.isLoggedIn ? (
               <Redirect to="/home" />
             ) : (
-              <Landing
-                checkIsLoggedIn={this.props.checkIsLoggedIn}
-                updateMovies={this.updateMovies}
-              />)
-        )}
-        />
-        <Match
-          pattern="/home" render={
-            () => (
+          <Landing2
+            checkIsLoggedIn={this.props.checkIsLoggedIn}
+            updateMovies={this.updateMovies}
+          />)
+        )}/>
+        <Match pattern="/home" render={
+            () =>(
               !this.props.isLoggedIn ? (
                 <Redirect to="/" />
               ) : (

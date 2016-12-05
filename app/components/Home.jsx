@@ -1,12 +1,14 @@
 import FriendMovies from './FriendMovies';
 import React from 'react';
+import { Match, Miss, Link } from 'react-router';
+import Landing2 from './Landing2';
 import UserMovies from './UserMovies';
 import { grey200 } from 'material-ui/styles/colors';
 
 const styles = {
   pageStyle: {
     backgroundColor: grey200,
-    fontFamily: 'Merriweather',
+    fontFamily: 'Six Caps',
     height: '100vh',
     paddingTop: 20,
   },
