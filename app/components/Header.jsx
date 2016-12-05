@@ -11,24 +11,24 @@ import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui
 
 const styles = {
   pageStyle: {
-    backgroundColor: grey200,
-    fontFamily: 'Merriweather'
+    backgroundColor: '#0D5813',
+    fontFamily: 'Six Caps'
   },
   toolbarStyle: {
-    backgroundColor: grey900,
+    backgroundColor: '#0D5813',
     alignItems: 'center',
   },
   titleStyle: {
     color: grey200,
     fontSize: 28,
     textDecoration: 'none',
-    fontFamily: 'Limelight',
+    fontFamily: 'Six Caps'
   },
   linksStyle: {
     color: grey200,
     fontSize: 14,
     textDecoration: 'none',
-    fontFamily: 'Limelight',
+    fontFamily: 'Six Caps'
   },
   textStyle: {
     textAlign: 'right',

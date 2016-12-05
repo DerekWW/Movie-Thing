@@ -8,7 +8,7 @@ import NotFound from './NotFound';
 import { Match, Miss } from 'react-router';
 import Redirect from 'react-router/Redirect'
 import MenuItem from 'material-ui/MenuItem';
-import Landing from './Landing';
+import Landing2 from './Landing2';
 
 
 const Main = React.createClass({
@@ -153,7 +153,7 @@ const Main = React.createClass({
             this.props.isLoggedIn ? (
               <Redirect to="/home" />
             ) : (
-          <Landing
+          <Landing2
             checkIsLoggedIn={this.props.checkIsLoggedIn}
             updateMovies={this.updateMovies}
           />)

@@ -2,7 +2,7 @@ import { BrowserRouter, Match, Miss } from 'react-router';
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
-import Landing from './Landing';
+import Landing2 from './Landing2';
 import NotFound from './NotFound';
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
@@ -15,7 +15,7 @@ injectTapEventPlugin();
 const styles = {
   pageStyle: {
     backgroundColor: grey200,
-    fontFamily: 'Merriweather',
+    // fontFamily: 'Merriweather',
     height: '100vh',
   },
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Match, Miss, Link } from 'react-router';
-import Landing from './Landing';
+import Landing2 from './Landing2';
 import UserMovies from './UserMovies';
 import FriendMovies from './FriendMovies';
 import MutualMovies from './MutualMovies';
@@ -9,7 +9,7 @@ import { black, grey100, grey200, grey800, grey900, red400 } from 'material-ui/s
 const styles = {
   pageStyle: {
     backgroundColor: grey200,
-    fontFamily: 'Merriweather',
+    fontFamily: 'Six Caps',
     height: '100vh',
     paddingTop: 20,
   },
