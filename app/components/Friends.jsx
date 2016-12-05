@@ -1,6 +1,9 @@
-import { grey200 } from 'material-ui/styles/colors';
+/* eslint-disable comma-dangle, no-console */
+
 import React from 'react';
 import Users from './Users';
+import axios from 'axios';
+import { grey200 } from 'material-ui/styles/colors';
 
 const styles = {
   pageStyle: {

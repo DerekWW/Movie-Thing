@@ -1,8 +1,10 @@
-import Header from './Header';
+/* eslint-disable comma-dangle, no-console */
+
+import { grey800, red400 } from 'material-ui/styles/colors';
+import RaisedButton from 'material-ui/RaisedButton';
 import React from 'react';
 import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
-import { black, grey100, grey200, grey800, grey900, red400 } from 'material-ui/styles/colors';
+import axios from 'axios';
 
 const styles = {
   formStyle: {
@@ -33,107 +35,107 @@ const styles = {
 
 const SignUp = React.createClass({
 
-  getInitialState(){
+  getInitialState() {
     return {
-        firstName: '',
-        lastName: '',
-        email: '',
-        username: '',
-        password: ''
-    }
+      firstName: '',
+      lastName: '',
+      email: '',
+      username: '',
+      password: ''
+    };
   },
 
   handleChange(event) {
-    this.setState({ [event.target.name] : event.target.value});
-    console.log(this.state);
-
-
+    this.setState({ [event.target.name]: event.target.value });
   },
 
   handleSubmit(event) {
     event.preventDefault();
     const user = {
-      firstName : this.state.firstName,
-      lastName : this.state.lastName,
-      email : this.state.email,
-      username : this.state.username,
-      password : this.state.password
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      email: this.state.email,
+      username: this.state.username,
+      password: this.state.password
     };
 
     axios.post('/api/users', user)
     .then((response) => {
       this.props.checkIsLoggedIn();
-      console.log(response);
       this.props.updateMovies();
     })
     .catch((err) => {
       console.error(err);
-    })
+    });
 
     this.setState({
-      firstName : '',
-      lastName : '',
-      email : '',
-      username : '',
-      password : ''
-    })
+      firstName: '',
+      lastName: '',
+      email: '',
+      username: '',
+      password: ''
+    });
 
     this.props.handleCloseSignup();
   },
-
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
         <div style={styles.formStyle}>Sign up for Movie Thing</div>
         <TextField
-          name="firstName"
-          value={this.state.firstName}
-          onChange={this.handleChange}
+          floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
+          floatingLabelStyle={styles.floatingLabelStyle}
           floatingLabelText="First Name"
-          floatingLabelStyle={styles.floatingLabelStyle}
-          floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
+          name="firstName"
+          onChange={this.handleChange}
+          value={this.state.firstName}
         />
         <br />
         <TextField
-          name="lastName"
-          value={this.state.lastName}
-          onChange={this.handleChange}
+          floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
+          floatingLabelStyle={styles.floatingLabelStyle}
           floatingLabelText="Last Name"
-          floatingLabelStyle={styles.floatingLabelStyle}
-          floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
+          name="lastName"
+          onChange={this.handleChange}
+          value={this.state.lastName}
         />
         <br />
         <TextField
-          name="username"
-          value={this.state.username}
-          onChange={this.handleChange}
+          floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
+          floatingLabelStyle={styles.floatingLabelStyle}
           floatingLabelText="Username"
-          floatingLabelStyle={styles.floatingLabelStyle}
-          floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
+          name="username"
+          onChange={this.handleChange}
+          value={this.state.username}
         />
         <br />
         <TextField
-          name="email"
-          value={this.state.email}
-          onChange={this.handleChange}
+          floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
+          floatingLabelStyle={styles.floatingLabelStyle}
           floatingLabelText="Email"
-          floatingLabelStyle={styles.floatingLabelStyle}
-          floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
+          name="email"
+          onChange={this.handleChange}
+          value={this.state.email}
         />
         <br />
         <TextField
-          name="password"
-          value={this.state.password}
-          onChange={this.handleChange}
-          floatingLabelText="Create Password"
-          errorText="This field is required."
-          type='password'
-          style={styles.floatingLabelFocusStyle}
           errorStyle={styles.floatingLabelStyle}
+          errorText="This field is required."
+          floatingLabelText="Create Password"
+          name="password"
+          onChange={this.handleChange}
+          style={styles.floatingLabelFocusStyle}
+          type="password"
+          value={this.state.password}
         />
         <br />
-        <RaisedButton type="submit" label="SignUp" primary={true} style={styles.buttonStyle} />
+        <RaisedButton
+          label="SignUp"
+          primary={true}
+          style={styles.buttonStyle}
+          type="submit"
+        />
       </form>
     );
   }

@@ -1,12 +1,12 @@
+/* eslint-disable comma-dangle */
+
 import React from 'react';
 import {GridList, GridTile} from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 import MutualMoviesDialog from './MutualMoviesDialog';
 import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
-import { black, grey100, grey200, grey800, grey900, red400 } from 'material-ui/styles/colors';
+import { grey200 } from 'material-ui/styles/colors';
 
 const styles = {
   pageStyle: {

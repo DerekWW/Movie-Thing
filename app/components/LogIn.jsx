@@ -1,8 +1,10 @@
-import Header from './Header';
+/* eslint-disable comma-dangle, no-console, max-len */
+
+import { grey200, grey800, red400 } from 'material-ui/styles/colors';
+import RaisedButton from 'material-ui/RaisedButton';
 import React from 'react';
 import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
-import { black, grey100, grey200, grey800, grey900, red400 } from 'material-ui/styles/colors';
+import axios from 'axios';
 
 const styles = {
   formStyle: {
@@ -31,67 +33,63 @@ const styles = {
   }
 };
 
-
-
 const LogIn = React.createClass({
 
   getInitialState() {
     return {
-        username: '',
-        password: ''
-    }
+      username: '',
+      password: ''
+    };
   },
 
   handleSubmit(event) {
     event.preventDefault();
-    const user = { username: this.state.username, password: this.state.password};
+    const user = { username: this.state.username, password: this.state.password };
+
     axios.post('/api/token', user)
     .then((response) => {
       this.props.checkIsLoggedIn();
-      console.log(response);
-      console.log(user);
       this.props.updateMovies();
     });
 
     this.props.handleCloseLogin();
-    this.setState({ username: '', password: ''});
+    this.setState({ username: '', password: '' });
   },
 
   handleChange(event) {
-
-    console.log(event.target.value);
-    this.setState({ [event.target.name] : event.target.value});
-    console.log(this.state);
+    this.setState({ [event.target.name]: event.target.value });
   },
-
 
   render() {
     return (
-        <form onSubmit={this.handleSubmit}>
-          <div style={styles.formStyle}>Log In to Movie Thing</div>
-          <TextField
-            name="username"
-            value={this.state.username}
-            onChange={this.handleChange}
-            floatingLabelText="Username"
-            floatingLabelStyle={styles.floatingLabelStyle}
-            floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
-          />
-          <br />
-          <TextField
-            name="password"
-            value={this.state.password}
-            onChange={this.handleChange}
-            floatingLabelText="Password"
-            // errorText="This field is required."
-            type='password'
-            floatingLabelStyle={styles.floatingLabelStyle}
-            errorStyle={styles.floatingLabelStyle}
-          />
-          <br />
-          <RaisedButton type="submit" label="LogIn" primary={false} style={styles.buttonStyle}/>
-        </form>
-      // </div>
+      <form onSubmit={this.handleSubmit}>
+        <div style={styles.formStyle}>Log In to Movie Thing</div>
+        <TextField
+          floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
+          floatingLabelStyle={styles.floatingLabelStyle}
+          floatingLabelText="Username"
+          name="username"
+          onChange={this.handleChange}
+          value={this.state.username}
+        />
+        <br />
+        <TextField
+          errorStyle={styles.floatingLabelStyle}
+          floatingLabelStyle={styles.floatingLabelStyle}
+          floatingLabelText="Password"
+          name="password"
+          onChange={this.handleChange}
+          type="password"
+          value={this.state.password}
+        />
+        <br />
+        <RaisedButton
+          label="LogIn"
+          primary={false}
+          style={styles.buttonStyle}
+          type="submit"
+        />
+      </form>
     );
   }
 });

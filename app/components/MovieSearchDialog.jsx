@@ -1,9 +1,9 @@
-import React from 'react';
+/* eslint-disable comma-dangle */
+
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
-import { black, grey100, grey200, grey800, grey900, red400 } from 'material-ui/styles/colors';
-// import Snackbar from 'material-ui/Snackbar';
+import React from 'react';
+import axios from 'axios';
 
 const styles = {
   dialogStyle: {
@@ -11,75 +11,68 @@ const styles = {
   },
 }
 
-
-const MovieSearchDialog = React.createClass ({
+const MovieSearchDialog = React.createClass({
   getInitialState() {
     return {
       open: false,
-      // openSnack: false,
     };
   },
 
   handleOpen() {
-    this.setState({open: true});
+    this.setState({ open: true });
   },
 
   handleClose() {
     this.setState({ open: false });
   },
 
-  updateMovies(){
-    this.props.updateMovies()
+  updateMovies() {
+    this.props.updateMovies();
   },
 
-
-
   addToFavorites() {
-    console.log(this.props);
-    this.setState({open: false});
-    let movie = {
+    this.setState({ open: false });
+    const movie = {
       id: this.props.id,
       rating: this.props.rating,
       title: this.props.title,
       poster: this.props.src,
       overview: this.props.overview,
       embedLink: this.props.embedLink,
-    }
+    };
+
     axios.post('/api/user_movies', movie)
     .then((res) => {
-      this.props.updateMovies()
-      this.props.snackBar()
-      console.log(res);
-    })
+      this.props.updateMovies();
+      this.props.snackBar();
+    });
   },
 
-
-
-  render(){
+  render() {
     const actions = [
       <FlatButton
-        label="Add to Favorites"
-        primary={true}
         keyboardFocused={false}
+        label="Add to Favorites"
         onTouchTap={this.addToFavorites}
+        primary={true}
       />,
       <FlatButton
         label="Close"
-        primary={true}
         onTouchTap={this.handleClose}
+        primary={true}
       />,
 
     ];
 
     return (
       <div>
-        <img src={this.props.src} onTouchTap={this.handleOpen} />
+        <img onTouchTap={this.handleOpen} src={this.props.src} />
         <Dialog
-          title={this.props.title}
           actions={actions}
           modal={false}
-          open={this.state.open}
           onRequestClose={this.handleClose}
+          open={this.state.open}
+          title={this.props.title}
         >
           <div style={styles.dialogStyle}>
           Overview: {this.props.overview}
@@ -88,16 +81,10 @@ const MovieSearchDialog = React.createClass ({
           <div style={styles.dialogStyle}>
           Rating: {this.props.rating}
           </div>
-       </Dialog>
-       {/* <Snackbar
-          open={this.state.open}
-          message="Movie added to favorites"
-          autoHideDuration={4000}
-          onRequestClose={this.handleClose}
-        /> */}
+        </Dialog>
       </div>
     );
   }
-})
+});
 
 export default MovieSearchDialog;

@@ -1,10 +1,9 @@
-import React from 'react';
-import { Match, Miss, Link } from 'react-router';
-import Landing from './Landing';
-import UserMovies from './UserMovies';
+/* eslint-disable comma-dangle */
+
 import FriendMovies from './FriendMovies';
-import MutualMovies from './MutualMovies';
-import { black, grey100, grey200, grey800, grey900, red400 } from 'material-ui/styles/colors';
+import React from 'react';
+import UserMovies from './UserMovies';
+import { grey200 } from 'material-ui/styles/colors';
 
 const styles = {
   pageStyle: {
@@ -13,27 +12,23 @@ const styles = {
     height: '100vh',
     paddingTop: 20,
   },
-}
+};
 
 const Home = React.createClass({
-  render(){
-    // console.log(this.props.userSearch);
+  render() {
     return (
       <div className="container" style={styles.pageStyle}>
         <div style={styles.pageStyle}>
-        <h5>Your favorites</h5>
-        <UserMovies
-          userMoviesArray={this.props.userMoviesArray}
-          updateMovies={this.props.updateMovies}
-        />
-        <br />
-        <h5>Friends Favorites</h5>
-        <FriendMovies
-          friendsMoviesArray={this.props.friendsMoviesArray}
-        />
-        {/* <MutualMovies
-          mutualMoviesArray={this.props.mutualMoviesArray}
-        /> */}
+          <h5>Your favorites</h5>
+          <UserMovies
+            updateMovies={this.props.updateMovies}
+            userMoviesArray={this.props.userMoviesArray}
+          />
+          <br />
+          <h5>Friends Favorites</h5>
+          <FriendMovies
+            friendsMoviesArray={this.props.friendsMoviesArray}
+          />
         </div>
       </div>
     );

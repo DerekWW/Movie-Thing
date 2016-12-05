@@ -1,9 +1,11 @@
+/* eslint-disable max-len */
+
 import { GridList, GridTile } from 'material-ui/GridList';
 import FriendMovieDialog from './FriendMovieDialog';
-import grey200 from 'material-ui/styles/colors';
 import IconButton from 'material-ui/IconButton';
 import React from 'react';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
+import grey200 from 'material-ui/styles/colors';
 
 const styles = {
   pageStyle: {
@@ -33,7 +35,9 @@ const FriendMovies = React.createClass({
         <GridList cellHeight={342} cols={2.2} style={styles.gridList}>
           {this.props.friendsMoviesArray.map((tile, index) => (
             <GridTile
-              actionIcon={<IconButton><StarBorder color="rgb(0, 188, 212)" /></IconButton>}
+              actionIcon={<IconButton>
+                <StarBorder color="rgb(0, 188, 212)" />
+              </IconButton>}
               key={index}
               style={styles.titleStyle}
               title={tile.movie_title}

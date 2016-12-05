@@ -10,7 +10,7 @@
   },
   "scripts": {
     "deploy": "rm -rf public; brunch build --production; surge public",
-    "lint": "n",
+    "lint": "eslint --ext .js,.jsx --ignore-pattern public",
     "start": "brunch watch --server",
     "knex": "knex"
   },
