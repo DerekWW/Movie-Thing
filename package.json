@@ -50,8 +50,7 @@
     "auto-reload-brunch": "^2.7.1",
     "eslint": "^3.4.0",
     "eslint-config-ryansobol": "^9.1.1",
-    "surge": "^0.18.0",
-
+    "surge": "^0.18.0"
   },
   "engines": {
   "node": "6.6.0"
