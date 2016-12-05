@@ -1,11 +1,8 @@
-/* eslint-disable comma-dangle */
+/* eslint-disable comma-dangle, max-len */
 
+import { GridList, GridTile } from 'material-ui/GridList';
+import MovieSearchDialog from './MovieSearchDialog';
 import React from 'react';
-import {GridList, GridTile} from 'material-ui/GridList';
-import IconButton from 'material-ui/IconButton';
-import Subheader from 'material-ui/Subheader';
-import StarBorder from 'material-ui/svg-icons/toggle/star-border';
-import MovieSearchDialog from './MovieSearchDialog'
 
 const styles = {
   root: {
@@ -20,7 +17,7 @@ const styles = {
   },
 };
 
-const MovieSearchTiles = React.createClass ({
+const MovieSearchTiles = React.createClass({
 
   render() {
     return (
@@ -28,34 +25,31 @@ const MovieSearchTiles = React.createClass ({
       <div style={styles.root}>
         <GridList
           cellHeight={342}
-          style={styles.gridList}
           cols={4}
-          >
-            {/* <Subheader>Search Results</Subheader> */}
-            {this.props.moviesArray.map((tile, index) => (
-              <GridTile
-                key={index}
+          style={styles.gridList}
+        >
+          {this.props.moviesArray.map((tile, index) => (
+            <GridTile
+              key={index}
+              title={tile.title}
+              titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
+            >
+              <MovieSearchDialog
+                embedLink={tile.embed_link}
+                id={tile.id}
+                overview={tile.overview}
+                rating={tile.rating}
+                snackBar={this.props.snackBar}
+                src={tile.poster_240x342}
                 title={tile.title}
-                titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
+                updateMovies={this.props.updateMovies}
+              />
+            </GridTile>
+          ))}
+        </GridList>
+      </div>
+    );
+  }
+});
 
-                >
-                  <MovieSearchDialog
-                    src={tile.poster_240x342}
-                    title={tile.title}
-                    rating={tile.rating}
-                    overview={tile.overview}
-                    id={tile.id}
-                    embedLink={tile.embed_link}
-                    updateMovies={this.props.updateMovies}
-                    snackBar={this.props.snackBar}
-                  />
-                </GridTile>
-              ))}
-            </GridList>
-          </div>
-        );
-
-      }
-    })
-
-    export default MovieSearchTiles;
+export default MovieSearchTiles;

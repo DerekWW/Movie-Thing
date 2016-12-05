@@ -24,7 +24,7 @@ const MovieDialog = React.createClass({
     const movieId = this.props.id;
 
     axios.delete('/api/user_movies', { data: { movieId }})
-    .then(res => {
+    .then(() => {
       this.setState({ open: false });
     }).then(() => {
       this.props.updateMovies();

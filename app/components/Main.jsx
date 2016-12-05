@@ -6,7 +6,7 @@ import Landing from './Landing';
 import { Match } from 'react-router';
 import MovieSearch from './MovieSearch';
 import React from 'react';
-import Redirect from 'react-router/Redirect'
+import Redirect from 'react-router/Redirect';
 import axios from 'axios';
 
 const Main = React.createClass({
@@ -101,9 +101,9 @@ const Main = React.createClass({
     const subFriendMatch = this.state.friends.filter((friend) => {
       if (person.id === friend.id) {
         return true;
-      } else {
-        return false;
       }
+
+      return false;
     });
 
     if (subFriendMatch.length === 1) {
@@ -119,9 +119,9 @@ const Main = React.createClass({
     const subMovieMatch = this.state.movies.filter((userMovie) => {
       if (movie.id === userMovie.id) {
         return true;
-      } else {
-        return false;
       }
+
+      return false;
     });
 
     if (subMovieMatch.length === 1) {
@@ -138,7 +138,7 @@ const Main = React.createClass({
       <div>
         <Match
           pattern="/" exactly render={
-          () =>(
+          () => (
             this.props.isLoggedIn ? (
               <Redirect to="/home" />
             ) : (
@@ -156,10 +156,10 @@ const Main = React.createClass({
               ) : (
                 <Home
                   {...this.state}
-                  mutualMoviesArray={this.state.mutualMoviesArray}
-                  userMoviesArray={this.state.userMoviesArray}
                   friendsMoviesArray={this.state.friendsMoviesArray}
+                  mutualMoviesArray={this.state.mutualMoviesArray}
                   updateMovies={this.updateMovies}
+                  userMoviesArray={this.state.userMoviesArray}
                 />
             )
         )}

@@ -1,4 +1,4 @@
-/* eslint-disable comma-dangle */
+/* eslint-disable comma-dangle, max-len */
 
 import { GridList, GridTile } from 'material-ui/GridList';
 import MovieDialog from './MovieDialog';
@@ -29,7 +29,7 @@ const UserMovies = React.createClass({
   render() {
     return (
       <div style={styles.root}>
-        <GridList style={styles.gridList} cols={2.2} cellHeight={342}>
+        <GridList cellHeight={342} cols={2.2} style={styles.gridList} >
           {this.props.userMoviesArray.map((tile, index) => (
             <GridTile
               key={index}
@@ -37,18 +37,18 @@ const UserMovies = React.createClass({
               titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
             >
               <MovieDialog
+                id={tile.movie_id}
+                overview={tile.movie_overview}
+                rating={tile.movie_rating}
                 src={tile.movie_poster}
                 title={tile.movie_title}
-                rating={tile.movie_rating}
-                overview={tile.movie_overview}
-                id={tile.movie_id}
                 updateMovies={this.props.updateMovies}
               />
             </GridTile>
           ))}
         </GridList>
       </div>
-    )
+    );
   }
 });
 

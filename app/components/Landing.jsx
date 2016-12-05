@@ -151,7 +151,6 @@ const Landing = React.createClass({
       />,
     ];
     const actionsLogin = [
-
       <FlatButton
         label="Close"
         onClick={this.handleCloseLogin}

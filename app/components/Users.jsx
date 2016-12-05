@@ -1,6 +1,5 @@
 /* eslint-disable comma-dangle */
 
-import {List, ListItem} from 'material-ui/List';
 import Li from './Li';
 import React from 'react';
 

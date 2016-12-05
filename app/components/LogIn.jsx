@@ -47,7 +47,7 @@ const LogIn = React.createClass({
     const user = { username: this.state.username, password: this.state.password };
 
     axios.post('/api/token', user)
-    .then((response) => {
+    .then(() => {
       this.props.checkIsLoggedIn();
       this.props.updateMovies();
     });
