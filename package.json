@@ -9,11 +9,10 @@
     "url": ""
   },
   "scripts": {
-    "deploy": "rm -rf public; brunch build --production; surge public",
+    "deploy": "rm -rf public; brunch build --production",
     "lint": "eslint --ext .js,.jsx --ignore-pattern public",
     "start": "brunch watch --server",
     "heroku-postbuild": "knex migrate:latest",
-    "nodemon": "nodemon server.js",
     "knex": "knex"
   },
   "dependencies": {
