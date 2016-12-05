@@ -1,4 +1,4 @@
-/* eslint-disable comma-dangle, no-console, max-len */
+/* eslint-disable no-console, max-len */
 
 import { grey200, grey800, red400 } from 'material-ui/styles/colors';
 import RaisedButton from 'material-ui/RaisedButton';

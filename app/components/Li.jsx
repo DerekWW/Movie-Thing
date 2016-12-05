@@ -1,4 +1,4 @@
-/* eslint-disable comma-dangle, no-console */
+/* eslint-disable no-console */
 
 import RaisedButton from 'material-ui/RaisedButton';
 import React from 'react';

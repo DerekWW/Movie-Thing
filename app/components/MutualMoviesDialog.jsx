@@ -1,5 +1,3 @@
-/* eslint-disable comma-dangle*/
-
 import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
@@ -34,11 +32,11 @@ const MutualMoviesDialog = React.createClass({
         onTouchTap={this.handleClose}
         primary={true}
       />,
-     <FlatButton
-       label="Cancel"
-       onTouchTap={this.handleClose}
-       primary={true}
-     />,
+      <FlatButton
+        label="Cancel"
+        onTouchTap={this.handleClose}
+        primary={true}
+      />,
     ];
 
     const friends = [

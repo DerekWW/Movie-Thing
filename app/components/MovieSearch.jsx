@@ -1,4 +1,4 @@
-/* eslint-disable comma-dangle, no-console */
+/* eslint-disable no-console */
 
 import { grey200, red400 } from 'material-ui/styles/colors';
 import Filter from './Filter';

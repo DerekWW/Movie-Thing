@@ -1,4 +1,4 @@
-/* eslint-disable comma-dangle, no-console */
+/* eslint-disable no-console */
 
 import Friends from './Friends';
 import Home from './Home';

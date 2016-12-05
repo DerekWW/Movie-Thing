@@ -1,4 +1,4 @@
-/* eslint-disable comma-dangle, no-console */
+/* eslint-disable no-console */
 
 import { grey800, red400 } from 'material-ui/styles/colors';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -60,7 +60,7 @@ const SignUp = React.createClass({
     };
 
     axios.post('/api/users', user)
-    .then((response) => {
+    .then(() => {
       this.props.checkIsLoggedIn();
       this.props.updateMovies();
     })

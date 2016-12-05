@@ -1,5 +1,3 @@
-/* eslint-disable comma-dangle */
-
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import React from 'react';
@@ -42,7 +40,7 @@ const MovieSearchDialog = React.createClass({
     };
 
     axios.post('/api/user_movies', movie)
-    .then((res) => {
+    .then(() => {
       this.props.updateMovies();
       this.props.snackBar();
     });

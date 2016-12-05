@@ -1,4 +1,4 @@
-/* eslint-disable comma-dangle, max-len */
+/* eslint-disable max-len */
 
 import { GridList, GridTile } from 'material-ui/GridList';
 import MovieDialog from './MovieDialog';

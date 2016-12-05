@@ -1,5 +1,3 @@
-/* eslint-disable comma-dangle */
-
 import FriendMovies from './FriendMovies';
 import React from 'react';
 import UserMovies from './UserMovies';

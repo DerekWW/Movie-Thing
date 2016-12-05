@@ -1,4 +1,4 @@
-/* eslint-disable comma-dangle, camelcase, max-len */
+/* eslint-disable camelcase, max-len */
 
 import { GridList, GridTile } from 'material-ui/GridList';
 import { grey200, red400 } from 'material-ui/styles/colors';

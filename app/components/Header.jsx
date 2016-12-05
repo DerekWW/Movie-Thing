@@ -1,4 +1,4 @@
-/* eslint-disable no-console, comma-dangle */
+/* eslint-disable no-console */
 
 import { grey200, grey900 } from 'material-ui/styles/colors';
 import FlatButton from 'material-ui/FlatButton';

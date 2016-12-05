@@ -1,5 +1,3 @@
-/* eslint-disable comma-dangle */
-
 import Li from './Li';
 import React from 'react';
 
