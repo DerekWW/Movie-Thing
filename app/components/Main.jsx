@@ -1,15 +1,16 @@
 /* eslint-disable no-console */
 
-import Friends from './Friends';
-import MovieSearch from './MovieSearch';
-import LogIn from './LogIn';
-import SignUp from './SignUp';
-import NotFound from './NotFound';
 import { Match, Miss } from 'react-router';
-import Redirect from 'react-router/Redirect'
-import MenuItem from 'material-ui/MenuItem';
+import Friends from './Friends';
+import Home from './Home';
 import Landing2 from './Landing2';
+import LogIn from './LogIn';
+import MenuItem from 'material-ui/MenuItem';
+import MovieSearch from './MovieSearch';
+import NotFound from './NotFound';
 import React from 'react';
+import Redirect from 'react-router/Redirect'
+import SignUp from './SignUp';
 
 const Main = React.createClass({
   getInitialState() {
