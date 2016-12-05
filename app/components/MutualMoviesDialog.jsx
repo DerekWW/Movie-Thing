@@ -1,8 +1,9 @@
-import React from 'react';
+/* eslint-disable comma-dangle*/
+
+import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
-import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
+import React from 'react';
 
 const styles = {
   radioButton: {
@@ -10,96 +11,94 @@ const styles = {
   },
 };
 
-
-const MutualMoviesDialog = React.createClass ({
-  getInitialState(){
+const MutualMoviesDialog = React.createClass({
+  getInitialState() {
     return {
       open: false,
     };
   },
 
-  handleOpen(){
-    this.setState({open: true});
+  handleOpen() {
+    this.setState({ open: true });
   },
 
-  handleClose(){
-    this.setState({open: false});
+  handleClose() {
+    this.setState({ open: false });
   },
 
-
-
-  render(){
+  render() {
     const actions = [
       <FlatButton
-        label="Go to the movies"
-        primary={true}
         keyboardFocused={false}
+        label="Go to the movies"
         onTouchTap={this.handleClose}
+        primary={true}
       />,
      <FlatButton
        label="Cancel"
-       primary={true}
        onTouchTap={this.handleClose}
+       primary={true}
      />,
-   ];
+    ];
 
-   const friends = [
-    {
-      first: 'Ted',
-      last: 'Danson',
-    },
-    {
-      first: 'John',
-      last: 'Ratzenburger',
-    },
-    {
-      first: 'George',
-      last: 'Wendt',
-    },
-    {
-      first: 'Shelley',
-      last: 'Long',
-    },
-    {
-      first: 'Rhea',
-      last: 'Perlman',
-    },
-    {
-      first: 'Bebe',
-      last: 'Neuwirth',
-    },
-   ]
+    const friends = [
+      {
+        first: 'Ted',
+        last: 'Danson',
+      },
+      {
+        first: 'John',
+        last: 'Ratzenburger',
+      },
+      {
+        first: 'George',
+        last: 'Wendt',
+      },
+      {
+        first: 'Shelley',
+        last: 'Long',
+      },
+      {
+        first: 'Rhea',
+        last: 'Perlman',
+      },
+      {
+        first: 'Bebe',
+        last: 'Neuwirth',
+      },
+    ];
 
-   const radios = [];
+    const radios = [];
+
     for (let i = 0; i < friends.length; i++) {
       radios.push(
         <RadioButton
           key={i}
-          value={`value${i + 1}`}
           label={`Option ${i + 1}`}
           style={styles.radioButton}
+          value={`value${i + 1}`}
         />
       );
     }
 
     return (
       <div>
-        <img src={this.props.src} onTouchTap={this.handleOpen} />
+        <img onTouchTap={this.handleOpen} src={this.props.src} />
         <Dialog
-          title="Scrollable Dialog"
           actions={actions}
-          modal={false}
-          open={this.state.open}
-          onRequestClose={this.handleClose}
           autoScrollBodyContent={true}
+          modal={false}
+          onRequestClose={this.handleClose}
+          open={this.state.open}
+          title="Scrollable Dialog"
         >
-          <RadioButtonGroup name="shipSpeed" defaultSelected="not_light">
+          <RadioButtonGroup defaultSelected="not_light" name="shipSpeed" >
             {radios}
           </RadioButtonGroup>
-       </Dialog>
+        </Dialog>
       </div>
     );
   }
-})
+});
 
 export default MutualMoviesDialog;

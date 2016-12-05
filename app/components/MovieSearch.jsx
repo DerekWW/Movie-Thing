@@ -1,3 +1,5 @@
+/* eslint-disable comma-dangle */
+
 import React from 'react';
 import Filter from './Filter';
 import MovieSearchTiles from './MovieSearchTiles';

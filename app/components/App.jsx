@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 import { BrowserRouter, Miss } from 'react-router';
 import Footer from './Footer';
 import Header from './Header';
@@ -5,6 +7,7 @@ import Main from './Main';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import NotFound from './NotFound';
 import React from 'react';
+import axios from 'axios';
 import { grey200 } from 'material-ui/styles/colors';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 

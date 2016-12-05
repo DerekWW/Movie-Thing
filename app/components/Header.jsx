@@ -1,8 +1,11 @@
+/* eslint-disable no-console, comma-dangle */
+
 import { grey200, grey900 } from 'material-ui/styles/colors';
 import FlatButton from 'material-ui/FlatButton';
 import { Link } from 'react-router';
 import React from 'react';
 import { Toolbar } from 'material-ui/Toolbar';
+import axios from 'axios';
 
 /* eslint-disable new-cap*/
 
@@ -68,8 +71,18 @@ const Header = React.createClass({
         style={styles.linksStyle}
       />;
 
-      friendsLink = <Link style={styles.linksStyle} to="/friends"> Find Friends </Link>
-      moviesLink = <Link style={styles.linksStyle} to="/moviesearch">Search Movies </Link>
+      friendsLink =
+        <Link
+          style={styles.linksStyle}
+          to="/friends"
+        > Find Friends
+      </Link>;
+      moviesLink =
+        <Link
+          style={styles.linksStyle}
+          to="/moviesearch"
+        >Search Movies
+      </Link>;
     }
 
     return (

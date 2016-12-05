@@ -1,10 +1,9 @@
-import React from 'react';
+/* eslint-disable comma-dangle */
+
+import { GridList, GridTile } from 'material-ui/GridList';
 import MovieDialog from './MovieDialog';
-import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
-import {GridList, GridTile} from 'material-ui/GridList';
-import { black, grey100, grey200, grey800, grey900, red400 } from 'material-ui/styles/colors';
+import React from 'react';
+import { grey200 } from 'material-ui/styles/colors';
 
 const styles = {
   pageStyle: {
@@ -26,35 +25,31 @@ const styles = {
   },
 };
 
-
-
 const UserMovies = React.createClass({
   render() {
-    console.log(this.props.userMoviesArray);
     return (
-        <div style={styles.root}>
-          <GridList style={styles.gridList} cols={2.2} cellHeight={342}>
-            {this.props.userMoviesArray.map((tile, index) => (
-              <GridTile
-                key={index}
-                // title={tile.title}
-                style={styles.titleStyle}
-                titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
-              >
-                <MovieDialog
-                  src={tile.movie_poster}
-                  title={tile.movie_title}
-                  rating={tile.movie_rating}
-                  overview={tile.movie_overview}
-                  id={tile.movie_id}
-                  updateMovies={this.props.updateMovies}
-                />
-              </GridTile>
-            ))}
-          </GridList>
-        </div>
-      )
-    }
-  });
+      <div style={styles.root}>
+        <GridList style={styles.gridList} cols={2.2} cellHeight={342}>
+          {this.props.userMoviesArray.map((tile, index) => (
+            <GridTile
+              key={index}
+              style={styles.titleStyle}
+              titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
+            >
+              <MovieDialog
+                src={tile.movie_poster}
+                title={tile.movie_title}
+                rating={tile.movie_rating}
+                overview={tile.movie_overview}
+                id={tile.movie_id}
+                updateMovies={this.props.updateMovies}
+              />
+            </GridTile>
+          ))}
+        </GridList>
+      </div>
+    )
+  }
+});
 
 export default UserMovies;

@@ -6,7 +6,7 @@ const NotFound = React.createClass({
       <main>
         <img src="https://stickaneedleinmyeye.files.wordpress.com/2013/09/emergency-broadcast-system1.jpg" />
       </main>
-    )
+    );
   }
 });
 

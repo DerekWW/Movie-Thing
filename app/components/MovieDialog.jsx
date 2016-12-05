@@ -1,57 +1,59 @@
-import React from 'react';
+/* eslint-disable comma-dangle */
+
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
+import React from 'react';
+import axios from 'axios';
 
-const MovieDialog = React.createClass ({
-  getInitialState(){
+const MovieDialog = React.createClass({
+  getInitialState() {
     return {
       open: false,
     };
   },
 
-  handleOpen(){
-    this.setState({open: true});
+  handleOpen() {
+    this.setState({ open: true });
   },
 
-  handleClose(){
-    this.setState({open: false});
+  handleClose() {
+    this.setState({ open: false });
   },
 
   handleClick() {
-    let movieId = this.props.id
-    axios.delete(`/api/user_movies`, {data: {movieId}})
+    const movieId = this.props.id;
+
+    axios.delete('/api/user_movies', { data: { movieId }})
     .then(res => {
-      this.setState({open: false});
+      this.setState({ open: false });
     }).then(() => {
       this.props.updateMovies();
     })
   },
 
-  render(){
+  render() {
     const actions = [
       <FlatButton
         label="Remove from Favorites"
-        primary={true}
-        // keyboardFocused={false}
         onTouchTap={this.handleClick}
+        primary={true}
       />,
       <FlatButton
         label="Close"
-        primary={true}
         onTouchTap={this.handleClose}
+        primary={true}
       />,
     ];
 
     return (
       <div>
-        <img src={this.props.src} onTouchTap={this.handleOpen} />
+        <img onTouchTap={this.handleOpen} src={this.props.src} />
         <Dialog
-          title={this.props.title}
           actions={actions}
           modal={false}
-          open={this.state.open}
           onRequestClose={this.handleClose}
+          open={this.state.open}
+          title={this.props.title}
         >
           <div>
           Overview: {this.props.overview}
@@ -60,10 +62,10 @@ const MovieDialog = React.createClass ({
           <div>
           Rating: {this.props.rating}
           </div>
-       </Dialog>
+        </Dialog>
       </div>
     );
   }
-})
+});
 
 export default MovieDialog;
