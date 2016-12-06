@@ -15,14 +15,22 @@ const styles = {
   pageStyle: {
     backgroundColor: '#0D5813',
     textAlign: 'center',
-    fontFamily: 'Six Caps',
+    fontFamily: 'Source Sans Pro',
     height: '100vh',
   },
-  // raisedButtonStyle: {
-  //   margin: 15,
-  //   backgroundColor: '#0D5813',
-  //   fontFamily: 'Six Caps'
-  // },
+
+  flatButtonStyle: {
+    margin: 15,
+    color: '#0D5813',
+    backgroundColor: '#FFFFFF',
+  },
+
+  labelStyle: {
+    fontSize: 18,
+    fontFamily: 'Source Sans Pro',
+    textAlign: 'center',
+
+  }
 
 }
 
@@ -77,42 +85,42 @@ const Landing2 = React.createClass({
         <div className="row">
           <div className="container">
             <div className="landing">
-              <h1>the following movie has been APPROVED by </h1>
-              <h1>MOVIE THING </h1>
-              <h1>to connect film fans and their friends</h1>
+              <p className="landingText">the following website has been
+                <span className="movieThing"> approved </span> by <br />
+                <span className="movieThing"> movie thing </span>
+                <br /> to connect film fans and their friends </p>
+                <div className="row">
                 <div className="rating">
                   <div>
-                    <div className="ratingTitle"> <h5> MOVIE THING </h5></div>
+                    <div className="ratingTitle"> <p> MOVIE THING </p></div>
                     <div className="ratingButtons">
-                    <RaisedButton
-                      className="ratingRaisedButton"
-                      label="Signup"
-                      secondary={false}
-                      onTouchTap={this.handleOpenSignup}
-                      bodyStyle={{backgroundColor: '#0D5813'}}
-                      // style={styles.ratingRaisedButton}
-
-                    />
-                      <Dialog
-                        actions={actionsSignup}
-                        modal={false}
-                        open={this.state.signupOpen}
-                        onRequestClose={this.handleClose}
-                        // bodyStyle={{backgroundColor: '#0D5813'}}
-                        >
-                          <SignUp
-                            checkIsLoggedIn={this.props.checkIsLoggedIn}
-                            handleCloseSignup={this.handleCloseSignup}
-                            updateMovies={this.props.updateMovies}
-                          />
-                        </Dialog>
-                    <RaisedButton
-                      className="ratingRaisedButton"
-                      label="Login"
-                      secondary={false}
-                      style={styles.raisedButtonStyle}
-                      onTouchTap={this.handleOpenLogin}
-                    />
+                      <FlatButton
+                        label="Signup"
+                        secondary={false}
+                        onTouchTap={this.handleOpenSignup}
+                        style={styles.flatButtonStyle}
+                        labelStyle={styles.labelStyle}
+                      />
+                        <Dialog
+                          actions={actionsSignup}
+                          modal={false}
+                          open={this.state.signupOpen}
+                          onRequestClose={this.handleClose}
+                          >
+                            <SignUp
+                              checkIsLoggedIn={this.props.checkIsLoggedIn}
+                              handleCloseSignup={this.handleCloseSignup}
+                              updateMovies={this.props.updateMovies}
+                            />
+                          </Dialog>
+                      <FlatButton
+                        className="ratingRaisedButton"
+                        label="Login"
+                        secondary={false}
+                        style={styles.flatButtonStyle}
+                        labelStyle={styles.labelStyle}
+                        onTouchTap={this.handleOpenLogin}
+                      />
                       <Dialog
                         actions={actionsLogin}
                         modal={false}
@@ -126,58 +134,17 @@ const Landing2 = React.createClass({
                             updateMovies={this.props.updateMovies}
                           />
                         </Dialog>
-                        </div>
+                    </div>
                   <div className="ratingDiv">
-                    <h6></h6>
-
-                  </div>
+                    <p>G</p>
                   </div>
                 </div>
+              </div>
+              </div>
             </div>
           </div>
         </div>
-          {/* <div className="row"> */}
-            {/* <RaisedButton
-              label="Signup"
-              secondary={false}
-              style={styles.raisedButtonStyle}
-              onTouchTap={this.handleOpenSignup}
-            />
-              <Dialog
-                actions={actionsSignup}
-                modal={false}
-                open={this.state.signupOpen}
-                onRequestClose={this.handleClose}
-                bodyStyle={{backgroundColor: grey200}}
-                >
-                  <SignUp
-                    checkIsLoggedIn={this.props.checkIsLoggedIn}
-                    handleCloseSignup={this.handleCloseSignup}
-                    updateMovies={this.props.updateMovies}
-                  />
-                </Dialog> */}
-
-              {/* <RaisedButton
-                label="Login"
-                secondary={false}
-                style={styles.raisedButtonStyle}
-                onTouchTap={this.handleOpenLogin}
-              />
-                <Dialog
-                  actions={actionsLogin}
-                  modal={false}
-                  open={this.state.loginOpen}
-                  onRequestClose={this.handleClose}
-                  bodyStyle={{backgroundColor: grey200}}
-                  >
-                    <Login
-                      checkIsLoggedIn={this.props.checkIsLoggedIn}
-                      handleCloseLogin={this.handleCloseLogin}
-                      updateMovies={this.props.updateMovies}
-                    />
-                  </Dialog> */}
-              {/* </div> */}
-            </div>
+      </div>
     );
   }
 });

@@ -8,7 +8,7 @@ import { grey200 } from 'material-ui/styles/colors';
 const styles = {
   pageStyle: {
     backgroundColor: grey200,
-    fontFamily: 'Six Caps',
+    fontFamily: 'Source Sans Pro',
     height: '100vh',
     paddingTop: 20,
   },

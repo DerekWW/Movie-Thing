@@ -12,7 +12,7 @@ import axios from 'axios';
 const styles = {
   pageStyle: {
     backgroundColor: '#0D5813',
-    fontFamily: 'Six Caps'
+    fontFamily: 'Source Sans Pro'
   },
   toolbarStyle: {
     backgroundColor: '#0D5813',
@@ -20,15 +20,15 @@ const styles = {
   },
   titleStyle: {
     color: grey200,
-    fontSize: 28,
+    fontSize: 18,
     textDecoration: 'none',
-    fontFamily: 'Six Caps'
+    fontFamily: 'Source Sans Pro'
   },
   linksStyle: {
     color: grey200,
     fontSize: 14,
     textDecoration: 'none',
-    fontFamily: 'Six Caps'
+    fontFamily: 'Source Sans Pro'
   },
   textStyle: {
     textAlign: 'right',
@@ -89,7 +89,7 @@ const Header = React.createClass({
       <div className="row" style={styles.pageStyle}>
         <Toolbar style={styles.toolbarStyle}>
           <div className="four columns">
-            <Link style={styles.titleStyle} to="/home">Movie Thing </Link>
+            <Link style={styles.titleStyle} to="/home">MOVIE THING</Link>
           </div>
           <div className="three columns" style={styles.textStyle}>
             {friendsLink}
