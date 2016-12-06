@@ -61,12 +61,6 @@ const Landing2 = React.createClass({
   render(){
     const actionsSignup = [
       <FlatButton
-        label="Submit"
-        primary={false}
-        keyboardFocused={false}
-        onClick={this.handleCloseSignup}
-      />,
-      <FlatButton
         label="Close"
         primary={false}
         onClick={this.handleCloseSignup}
