@@ -130,12 +130,6 @@ const SignUp = React.createClass({
           value={this.state.password}
         />
         <br />
-        <RaisedButton
-          label="SignUp"
-          primary={true}
-          style={styles.buttonStyle}
-          type="submit"
-        />
       </form>
     );
   }
