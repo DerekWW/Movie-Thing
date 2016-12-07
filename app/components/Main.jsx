@@ -189,7 +189,7 @@ const Main = React.createClass({
                 component={Friends}
                 friends={this.state.friends}
                 handleAddToFriendsList={this.handleAddToFriendsList}
-                usersArray={this.state.usersArray}
+                usersArrslay={this.state.usersArray}
               />)
         )}
         />
