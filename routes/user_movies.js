@@ -46,6 +46,20 @@ router.get('/api/user_movies/friends', authorize, (req, res, next) => {
   .innerJoin('user_movies', 'movies.movie_id', 'user_movies.movie_id')
   .whereIn('user_movies.user_id', subquery)
   .then((list) => {
+    console.log(list);
+    res.send(list);
+  })
+  .catch((err) => {
+    next(err);
+  });
+});
+
+router.get('/api/user_movies/friendsList', authorize, (req, res, next) => {
+  knex('friends')
+  .select('followed_id')
+  .where('follower_id', req.token.userId)
+  .then((list) => {
+    console.log(list);
     res.send(list);
   })
   .catch((err) => {

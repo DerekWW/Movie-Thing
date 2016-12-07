@@ -17,7 +17,7 @@ const Main = React.createClass({
     return {
       friends: [],
       userMoviesArray: [],
-      friendsMoviesArray: [],
+      friendsMoviesArray: {},
       userMovies: [],
       mutualMoviesArray: [
         {
@@ -80,6 +80,19 @@ const Main = React.createClass({
       .catch((err) => {
         console.error(err);
       });
+
+      axios.get('/api/friends')
+      .then((res) => {
+        this.setState({ friends : res.data })
+      })
+      .then(() => {
+        this.state.friends.map((friend) => {
+          axios.get()
+        })
+      })
+      .catch((err) => {
+        console.error(err);
+      })
   },
 
   updateMovies() {
