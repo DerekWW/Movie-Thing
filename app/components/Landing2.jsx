@@ -29,7 +29,10 @@ const styles = {
     fontSize: 18,
     fontFamily: 'Source Sans Pro',
     textAlign: 'center',
+  },
 
+  dialogStyle: {
+    backgroundColor: '#FFFFFF',
   }
 
 }
@@ -100,6 +103,7 @@ const Landing2 = React.createClass({
                           modal={false}
                           open={this.state.signupOpen}
                           onRequestClose={this.handleClose}
+                          style={styles.dialogStyle}
                           >
                             <SignUp
                               checkIsLoggedIn={this.props.checkIsLoggedIn}
@@ -120,7 +124,7 @@ const Landing2 = React.createClass({
                         modal={false}
                         open={this.state.loginOpen}
                         onRequestClose={this.handleClose}
-                        bodyStyle={{backgroundColor: grey200}}
+                        style={styles.dialogStyle}
                         >
                           <Login
                             checkIsLoggedIn={this.props.checkIsLoggedIn}

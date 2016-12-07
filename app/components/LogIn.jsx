@@ -8,28 +8,28 @@ import axios from 'axios';
 
 const styles = {
   formStyle: {
-    backgroundColor: grey200,
+    backgroundColor: '#FFFFFF',
     fontFamily: 'Merriweather',
     textAlign: 'center',
     fontSize: 24,
   },
   errorStyle: {
-    color: red400,
+    color: '#22007C',
   },
   underlineStyle: {
-    borderColor: red400,
+    borderColor: '#22007C',
   },
   floatingLabelStyle: {
-    color: red400,
+    color: '#22007C',
     fontFamily: 'Merriweather'
   },
   floatingLabelFocusStyle: {
-    color: grey800,
+    color: '#22007C',
     fontFamily: 'Merriweather'
   },
   buttonStyle: {
     margin: 12,
-    backgroundColor: red400,
+    backgroundColor: '#22007C',
   }
 };
 
