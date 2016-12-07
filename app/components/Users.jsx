@@ -1,11 +1,6 @@
+import {List, ListItem} from 'material-ui/List';
 import Li from './Li';
 import React from 'react';
-
-const styles = {
-  ulStyle: {
-    listStyleType: 'none',
-  }
-};
 
 const Users = React.createClass({
 
@@ -20,9 +15,9 @@ const Users = React.createClass({
     });
 
     return (
-      <ul style={styles.ulStyle}>
+      <div>
         { userlist }
-      </ul>
+      </div>
     );
   }
 });

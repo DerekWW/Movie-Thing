@@ -16,7 +16,7 @@ injectTapEventPlugin();
 
 const styles = {
   pageStyle: {
-    backgroundColor: grey200,
+    backgroundColor: '#FFFFFF',
     height: '100vh',
   },
 };

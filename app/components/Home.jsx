@@ -3,13 +3,11 @@ import React from 'react';
 import { Match, Miss, Link } from 'react-router';
 import Landing2 from './Landing2';
 import UserMovies from './UserMovies';
-import { grey200 } from 'material-ui/styles/colors';
 
 const styles = {
   pageStyle: {
-    backgroundColor: grey200,
+    backgroundColor: '#FFFFFF',
     fontFamily: 'Source Sans Pro',
-    height: '100vh',
     paddingTop: 20,
   },
 };

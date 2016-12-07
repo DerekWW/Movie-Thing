@@ -15,7 +15,6 @@ import FriendMovieDialog from './FriendMovieDialog';
 const styles = {
   actionsContainerStyle: {
     backgroundColor: '#FFFFFF',
-    // height: 30,
   },
 
   bodyStyle: {
@@ -102,7 +101,6 @@ const Landing2 = React.createClass({
     return (
       <div style={styles.pageStyle}>
         <div className="row">
-          {/* <div className="container"> */}
             <div className="landing">
               <p className="landingText">the following website has been
                 <span className="movieThing"> approved </span> by <br />
@@ -115,8 +113,6 @@ const Landing2 = React.createClass({
                   <div className="ratingDiv">
                     <p>G</p>
                   </div>
-                  {/* <div> */}
-                    {/* <div className="ratingTitle"> <p> MOVIE THING </p></div> */}
                     <div className="ratingButtons">
                       <FlatButton
                         label="Signup"
@@ -163,15 +159,10 @@ const Landing2 = React.createClass({
                             updateMovies={this.props.updateMovies}
                           />
                         </Dialog>
-                    {/* </div> */}
-                  {/* <div className="ratingDiv">
-                    <p>G</p>
-                  </div> */}
                 </div>
               </div>
               </div>
             </div>
-          {/* </div> */}
         </div>
       </div>
     );

@@ -3,19 +3,19 @@
 import React from 'react';
 import Users from './Users';
 import axios from 'axios';
-import { grey200 } from 'material-ui/styles/colors';
 
 const styles = {
   pageStyle: {
-    backgroundColor: grey200,
-    fontFamily: 'Merriweather',
+    backgroundColor: '#FFFFFF',
+    fontFamily: 'Source Sans Pro',
     paddingTop: 20
   },
-  titleStyle: {
-    textAlign: 'center'
-  }
 
-  // marginRight: 20,
+  titleStyle: {
+    textAlign: 'center',
+    textTransform: 'uppercase'
+  },
+
 };
 
 const Friends = React.createClass({
@@ -47,7 +47,7 @@ const Friends = React.createClass({
 
   render() {
     return (
-      <div className="container">
+      <div className="container" style={styles.pageStyle}>
         <h5 style={styles.titleStyle}>Find your Friends</h5>
         <Users
           usersArray={this.state.usersArray}

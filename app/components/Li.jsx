@@ -1,13 +1,23 @@
 /* eslint-disable no-console */
 
-import RaisedButton from 'material-ui/RaisedButton';
+import {List, ListItem} from 'material-ui/List';
+import FlatButton from 'material-ui/FlatButton';
+import IconButton from 'material-ui/IconButton';
 import React from 'react';
 import axios from 'axios';
 import { red400 } from 'material-ui/styles/colors';
 
 const styles = {
-  buttonStyle: {
-    disabledBackgroundColor: red400,
+  friendStyle: {
+    paddingTop: 10,
+  },
+
+  iconStyleIsFriend: {
+    color: '#EE6352',
+  },
+
+  iconStyleNotFriend: {
+    color: '#0D5813',
   },
 };
 
@@ -71,31 +81,26 @@ const Li = React.createClass({
     let button = null;
 
     if (!isFriend) {
-      button = <RaisedButton
-        backgroundColor="#EF5350"
-        label=" Follow "
+      button = <IconButton
+        iconClassName="material-icons"
         onClick={this.addFriend}
-        primary={false}
-        style={styles.buttonStyle}
-      />;
+        iconStyle={styles.iconStyleNotFriend}
+      >person_add</IconButton>;
     }
     if (isFriend) {
-      button = <RaisedButton
-        label="Unfollow"
+      button = <IconButton
+        iconClassName="material-icons"
         onClick={this.removeFriend}
-        secondary={false}
-      />;
+        iconStyle={styles.iconStyleIsFriend}
+      >stars</IconButton>;
     }
 
     return (
-      <li>
-        <div>
-          {button}
-          {this.props.user.username} :
-          {this.props.user.firstName}
-          {this.props.user.lastName}
-        </div>
-      </li>
+      <div className="container">
+        <div className="two columns">{button}</div>
+        <div className="six columns" style={styles.friendStyle}>Username: {this.props.user.username}</div>
+        {/* <div className="three columns">{this.props.user.username}</div> */}
+      </div>
     );
   }
 
