@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 
-import { grey200, grey900 } from 'material-ui/styles/colors';
 import FlatButton from 'material-ui/FlatButton';
 import { Link } from 'react-router';
 import React from 'react';
@@ -19,13 +18,13 @@ const styles = {
     alignItems: 'center',
   },
   titleStyle: {
-    color: grey200,
+    color: '#FFFFFF',
     fontSize: 18,
     textDecoration: 'none',
     fontFamily: 'Source Sans Pro'
   },
   linksStyle: {
-    color: grey200,
+    color: '#FFFFFF',
     fontSize: 14,
     textDecoration: 'none',
     fontFamily: 'Source Sans Pro'

@@ -1,4 +1,5 @@
 import React from 'react';
+import FontIcon from 'material-ui/FontIcon';
 import Header from './Header';
 import Login from './LogIn';
 import SignUp from './SignUp';
@@ -32,9 +33,17 @@ const styles = {
   },
 
   dialogStyle: {
-    backgroundColor: '#FFFFFF',
-  }
+    width: '40%',
+  },
 
+  dialogBodyStyle: {
+    backgroundColor: '#FFFFFF',
+    width: '100%',
+  },
+
+  fontIconStyle: {
+    color: '#0D5813',
+  }
 }
 
 const Landing2 = React.createClass({
@@ -63,19 +72,18 @@ const Landing2 = React.createClass({
 
   render(){
     const actionsSignup = [
-      <FlatButton
-        label="Close"
-        primary={false}
+      <FontIcon
+        className="material-icons"
         onClick={this.handleCloseSignup}
-      />,
+        style={styles.fontIconStyle}
+      >close</FontIcon>
     ];
     const actionsLogin = [
-      <FlatButton
-        label="Close"
-        primary={false}
+      <FontIcon
+        className="material-icons"
         onClick={this.handleCloseLogin}
-        style={{backgroundColor: grey200}}
-      />,
+        style={styles.fontIconStyle}
+        >close</FontIcon>
     ];
     return (
       <div style={styles.pageStyle}>
@@ -103,7 +111,8 @@ const Landing2 = React.createClass({
                           modal={false}
                           open={this.state.signupOpen}
                           onRequestClose={this.handleClose}
-                          style={styles.dialogStyle}
+                          contentStyle={styles.dialogStyle}
+                          bodyStyle={styles.dialogBodyStyle}
                           >
                             <SignUp
                               checkIsLoggedIn={this.props.checkIsLoggedIn}

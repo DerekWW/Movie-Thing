@@ -1,35 +1,46 @@
 /* eslint-disable no-console */
 
-import { grey800, red400 } from 'material-ui/styles/colors';
-import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 import React from 'react';
 import TextField from 'material-ui/TextField';
 import axios from 'axios';
 
 const styles = {
   formStyle: {
-    fontFamily: 'Merriweather',
+    fontFamily: 'Source Sans Pro',
     textAlign: 'center',
     fontSize: 24,
   },
   errorStyle: {
-    color: '#22007C',
+    // color: '#EE6352',
+    borderColor: '#4DCCBD',
+
   },
   underlineStyle: {
-    borderColor: '#22007C',
+    borderColor: '#4DCCBD',
+
   },
   floatingLabelStyle: {
-    color: '#22007C',
-    fontFamily: 'Merriweather'
+    color: '#0D5813',
+    fontFamily: 'Source Sans Pro',
 
   },
   floatingLabelFocusStyle: {
-    color: '#22007C',
-    fontFamily: 'Merriweather'
+    color: '#0D5813',
+    fontFamily: 'Source Sans Pro',
 
   },
   buttonStyle: {
     margin: 12,
+  },
+  inputStyle: {
+    fontFamily: 'Source Sans Pro',
+    color: '#EE6352',
+  },
+
+  labelStyle: {
+    color: '#FFFFFF',
+    backgroundColor: '#0D5813',
   }
 };
 
@@ -81,8 +92,8 @@ const SignUp = React.createClass({
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div style={styles.formStyle}>Sign up for Movie Thing</div>
+      <form onSubmit={this.handleSubmit} className="landingSignupDialog">
+        <div>Sign up for Movie Thing</div>
         <TextField
           floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
           floatingLabelStyle={styles.floatingLabelStyle}
@@ -130,10 +141,10 @@ const SignUp = React.createClass({
           value={this.state.password}
         />
         <br />
-        <RaisedButton
+        <FlatButton
           label="SignUp"
-          primary={true}
           style={styles.buttonStyle}
+          labelStyle={styles.labelStyle}
           type="submit"
         />
       </form>

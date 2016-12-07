@@ -1,6 +1,5 @@
 /* eslint-disable no-console, max-len */
 
-import { grey200, grey800, red400 } from 'material-ui/styles/colors';
 import RaisedButton from 'material-ui/RaisedButton';
 import React from 'react';
 import TextField from 'material-ui/TextField';
@@ -8,28 +7,26 @@ import axios from 'axios';
 
 const styles = {
   formStyle: {
-    backgroundColor: '#FFFFFF',
-    fontFamily: 'Merriweather',
+    fontFamily: 'Source Sans Pro',
     textAlign: 'center',
     fontSize: 24,
   },
   errorStyle: {
-    color: '#22007C',
+    color: '#0D5813',
   },
   underlineStyle: {
-    borderColor: '#22007C',
+    color: '#0D5813',
   },
   floatingLabelStyle: {
-    color: '#22007C',
-    fontFamily: 'Merriweather'
+    color: '#0D5813',
+    fontFamily: 'Source Sans Pro',
   },
   floatingLabelFocusStyle: {
-    color: '#22007C',
-    fontFamily: 'Merriweather'
+    color: '#0D5813',
+    fontFamily: 'Source Sans Pro',
   },
   buttonStyle: {
     margin: 12,
-    backgroundColor: '#22007C',
   }
 };
 
@@ -62,7 +59,7 @@ const LogIn = React.createClass({
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className="landingLoginDialog">
         <div style={styles.formStyle}>Log In to Movie Thing</div>
         <TextField
           floatingLabelFocusStyle={styles.floatingLabelFocusStyle}

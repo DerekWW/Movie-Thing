@@ -52,3 +52,21 @@ div.landing {
 .movieThing {
   font-size: 42px;
 }
+
+.landingSignupDialog {
+  text-align: center;
+  padding-top: 15px;
+  line-height: .40;
+  text-transform: uppercase;
+}
+
+.landingLoginDialog {
+  text-align: center;
+  padding-top: 80px;
+  line-height: .40;
+  text-transform: uppercase;
+}
+
+.material-icons {
+  height: 5px;
+}
