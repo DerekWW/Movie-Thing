@@ -1,36 +1,43 @@
 /* eslint-disable no-console, max-len */
 
-import { grey200, grey800, red400 } from 'material-ui/styles/colors';
-import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 import React from 'react';
 import TextField from 'material-ui/TextField';
 import axios from 'axios';
 
 const styles = {
-  formStyle: {
-    backgroundColor: grey200,
-    fontFamily: 'Merriweather',
-    textAlign: 'center',
-    fontSize: 24,
-  },
-  errorStyle: {
-    color: red400,
-  },
-  underlineStyle: {
-    borderColor: red400,
-  },
-  floatingLabelStyle: {
-    color: red400,
-    fontFamily: 'Merriweather'
-  },
-  floatingLabelFocusStyle: {
-    color: grey800,
-    fontFamily: 'Merriweather'
-  },
   buttonStyle: {
     margin: 12,
-    backgroundColor: red400,
-  }
+    backgroundColor: '#0D5813',
+    color: '#FFFFFF',
+  },
+
+  floatingLabelStyle: {
+    color: '#0D5813',
+    fontFamily: 'Source Sans Pro',
+  },
+
+  floatingLabelFocusStyle: {
+    color: '#EE6352',
+    fontFamily: 'Source Sans Pro',
+  },
+
+  formStyle: {
+    fontFamily: 'Source Sans Pro',
+    textAlign: 'center',
+    fontSize: 24,
+    color: '#EE6352',
+  },
+
+  inputStyle: {
+    color: '#0D5813',
+    textTransform: 'uppercase',
+    fontSize: 12
+  },
+
+  underlineStyle: {
+    color: '#0D5813',
+  },
 };
 
 const LogIn = React.createClass({
@@ -62,28 +69,32 @@ const LogIn = React.createClass({
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className="landingLoginDialog">
         <div style={styles.formStyle}>Log In to Movie Thing</div>
         <TextField
           floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
           floatingLabelStyle={styles.floatingLabelStyle}
           floatingLabelText="Username"
+          inputStyle={styles.inputStyle}
           name="username"
           onChange={this.handleChange}
+          underlineStyle={styles.underlineStyle}
           value={this.state.username}
         />
         <br />
         <TextField
-          errorStyle={styles.floatingLabelStyle}
+          floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
           floatingLabelStyle={styles.floatingLabelStyle}
           floatingLabelText="Password"
           name="password"
+          inputStyle={styles.inputStyle}
           onChange={this.handleChange}
           type="password"
+          underlineStyle={styles.underlineStyle}
           value={this.state.password}
         />
         <br />
-        <RaisedButton
+        <FlatButton
           label="LogIn"
           primary={false}
           style={styles.buttonStyle}
