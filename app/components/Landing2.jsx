@@ -15,7 +15,7 @@ import FriendMovieDialog from './FriendMovieDialog';
 const styles = {
   actionsContainerStyle: {
     backgroundColor: '#FFFFFF',
-    height: 30,
+    // height: 30,
   },
 
   bodyStyle: {
@@ -29,7 +29,7 @@ const styles = {
   },
 
   flatButtonStyle: {
-    margin: 15,
+    margin: 10,
     color: '#0D5813',
     backgroundColor: '#FFFFFF',
   },
