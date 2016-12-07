@@ -13,11 +13,19 @@ import FriendMovieDialog from './FriendMovieDialog';
 
 
 const styles = {
-  pageStyle: {
-    backgroundColor: '#0D5813',
+  actionsContainerStyle: {
+    backgroundColor: '#FFFFFF',
+    height: 30,
+  },
+
+  bodyStyle: {
+    backgroundColor: '#FFFFFF',
+    width: '100%',
     textAlign: 'center',
-    fontFamily: 'Source Sans Pro',
-    height: '100vh',
+  },
+
+  contentStyle: {
+    width: '50%',
   },
 
   flatButtonStyle: {
@@ -26,24 +34,30 @@ const styles = {
     backgroundColor: '#FFFFFF',
   },
 
+  fontIconStyle: {
+    color: '#0D5813',
+  },
+
+  hoverColor: {
+    color: '#FFFFFF',
+  },
+
   labelStyle: {
     fontSize: 18,
     fontFamily: 'Source Sans Pro',
     textAlign: 'center',
   },
 
-  dialogStyle: {
-    width: '40%',
+  overlayStyle: {
+    height: '100%',
   },
 
-  dialogBodyStyle: {
-    backgroundColor: '#FFFFFF',
-    width: '100%',
+  pageStyle: {
+    backgroundColor: '#0D5813',
+    textAlign: 'center',
+    fontFamily: 'Source Sans Pro',
+    height: '100vh',
   },
-
-  fontIconStyle: {
-    color: '#0D5813',
-  }
 }
 
 const Landing2 = React.createClass({
@@ -88,7 +102,7 @@ const Landing2 = React.createClass({
     return (
       <div style={styles.pageStyle}>
         <div className="row">
-          <div className="container">
+          {/* <div className="container"> */}
             <div className="landing">
               <p className="landingText">the following website has been
                 <span className="movieThing"> approved </span> by <br />
@@ -96,23 +110,30 @@ const Landing2 = React.createClass({
                 <br /> to connect film fans and their friends </p>
                 <div className="row">
                 <div className="rating">
-                  <div>
-                    <div className="ratingTitle"> <p> MOVIE THING </p></div>
+
+                  <div className="ratingTitle"> <p> MOVIE THING </p></div>
+                  <div className="ratingDiv">
+                    <p>G</p>
+                  </div>
+                  {/* <div> */}
+                    {/* <div className="ratingTitle"> <p> MOVIE THING </p></div> */}
                     <div className="ratingButtons">
                       <FlatButton
                         label="Signup"
-                        secondary={false}
-                        onTouchTap={this.handleOpenSignup}
-                        style={styles.flatButtonStyle}
                         labelStyle={styles.labelStyle}
+                        onTouchTap={this.handleOpenSignup}
+                        secondary={false}
+                        style={styles.flatButtonStyle}
                       />
                         <Dialog
                           actions={actionsSignup}
+                          actionsContainerStyle={styles.actionsContainerStyle}
+                          autoScrollBodyContent={true}
+                          bodyStyle={styles.bodyStyle}
+                          contentStyle={styles.contentStyle}
                           modal={false}
-                          open={this.state.signupOpen}
                           onRequestClose={this.handleClose}
-                          contentStyle={styles.dialogStyle}
-                          bodyStyle={styles.dialogBodyStyle}
+                          open={this.state.signupOpen}
                           >
                             <SignUp
                               checkIsLoggedIn={this.props.checkIsLoggedIn}
@@ -121,19 +142,20 @@ const Landing2 = React.createClass({
                             />
                           </Dialog>
                       <FlatButton
-                        className="ratingRaisedButton"
                         label="Login"
-                        secondary={false}
-                        style={styles.flatButtonStyle}
                         labelStyle={styles.labelStyle}
                         onTouchTap={this.handleOpenLogin}
+                        secondary={false}
+                        style={styles.flatButtonStyle}
                       />
                       <Dialog
                         actions={actionsLogin}
+                        autoScrollBodyContent={true}
+                        bodyStyle={styles.bodyStyle}
+                        contentStyle={styles.contentStyle}
                         modal={false}
-                        open={this.state.loginOpen}
                         onRequestClose={this.handleClose}
-                        style={styles.dialogStyle}
+                        open={this.state.loginOpen}
                         >
                           <Login
                             checkIsLoggedIn={this.props.checkIsLoggedIn}
@@ -141,15 +163,15 @@ const Landing2 = React.createClass({
                             updateMovies={this.props.updateMovies}
                           />
                         </Dialog>
-                    </div>
-                  <div className="ratingDiv">
+                    {/* </div> */}
+                  {/* <div className="ratingDiv">
                     <p>G</p>
-                  </div>
+                  </div> */}
                 </div>
               </div>
               </div>
             </div>
-          </div>
+          {/* </div> */}
         </div>
       </div>
     );

@@ -1,33 +1,43 @@
 /* eslint-disable no-console, max-len */
 
-import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 import React from 'react';
 import TextField from 'material-ui/TextField';
 import axios from 'axios';
 
 const styles = {
-  formStyle: {
-    fontFamily: 'Source Sans Pro',
-    textAlign: 'center',
-    fontSize: 24,
+  buttonStyle: {
+    margin: 12,
+    backgroundColor: '#0D5813',
+    color: '#FFFFFF',
   },
-  errorStyle: {
-    color: '#0D5813',
-  },
-  underlineStyle: {
-    color: '#0D5813',
-  },
+
   floatingLabelStyle: {
     color: '#0D5813',
     fontFamily: 'Source Sans Pro',
   },
+
   floatingLabelFocusStyle: {
-    color: '#0D5813',
+    color: '#EE6352',
     fontFamily: 'Source Sans Pro',
   },
-  buttonStyle: {
-    margin: 12,
-  }
+
+  formStyle: {
+    fontFamily: 'Source Sans Pro',
+    textAlign: 'center',
+    fontSize: 24,
+    color: '#EE6352',
+  },
+
+  inputStyle: {
+    color: '#0D5813',
+    textTransform: 'uppercase',
+    fontSize: 12
+  },
+
+  underlineStyle: {
+    color: '#0D5813',
+  },
 };
 
 const LogIn = React.createClass({
@@ -65,22 +75,26 @@ const LogIn = React.createClass({
           floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
           floatingLabelStyle={styles.floatingLabelStyle}
           floatingLabelText="Username"
+          inputStyle={styles.inputStyle}
           name="username"
           onChange={this.handleChange}
+          underlineStyle={styles.underlineStyle}
           value={this.state.username}
         />
         <br />
         <TextField
-          errorStyle={styles.floatingLabelStyle}
+          floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
           floatingLabelStyle={styles.floatingLabelStyle}
           floatingLabelText="Password"
           name="password"
+          inputStyle={styles.inputStyle}
           onChange={this.handleChange}
           type="password"
+          underlineStyle={styles.underlineStyle}
           value={this.state.password}
         />
         <br />
-        <RaisedButton
+        <FlatButton
           label="LogIn"
           primary={false}
           style={styles.buttonStyle}
