@@ -13,6 +13,18 @@ const styles = {
 };
 
 const Home = React.createClass({
+
+  // let mappedFriends =         _.map(this.props.friendsMoviesArray,(friend) => (
+  //   {console.log(friend);}
+  //   <div>
+  //     <h5>{friend[0].first_name + ' ' + friend[0].last_name}</h5>
+  //     {/* <FriendMovies
+  //       friendsMoviesArray={movie}
+  //     /> */}
+  //   </div>
+  //
+  // ))
+
   render() {
     return (
       <div className="container" style={styles.pageStyle}>
@@ -23,10 +35,18 @@ const Home = React.createClass({
             userMoviesArray={this.props.userMoviesArray}
           />
           <br />
-          <h5>Friends Favorites</h5>
-          <FriendMovies
-            friendsMoviesArray={this.props.friendsMoviesArray}
-          />
+
+          {_.map(this.props.friendsMoviesArray,(friend, index) => (
+            <div>
+              <h5>{'Movies that ' + friend[0].first_name + ' ' + friend[0].last_name + ' is watching!'}</h5>
+              <FriendMovies
+                friendsMoviesArray={friend}
+              />
+            </div>
+
+          ))}
+
+
         </div>
       </div>
     );

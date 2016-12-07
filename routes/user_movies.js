@@ -59,8 +59,11 @@ router.get('/api/user_movies/friendsMovies', authorize, (req, res, next) => {
 knex.raw(`select users.id, users.first_name, users.last_name, movies.movie_title, movies.movie_rating, movies.movie_poster, movies.movie_overview, movies.embed_link  from users inner join friends on friends.followed_id = users.id inner join user_movies on user_movies.user_id = users.id inner join movies on movies.movie_id = user_movies.movie_id where friends.follower_id = ${req.token.userId}`)
 .then((response) => {
   console.log(response.rows);
-  res.send(response.rows)
+  res.send(response.rows);
 })
+.catch((err) => {
+  next(err);
+});
 
 })
 

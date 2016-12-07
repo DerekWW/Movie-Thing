@@ -73,22 +73,24 @@ const Main = React.createClass({
         console.error(err);
       });
 
-    axios.get('/api/user_movies/friends')
-      .then((res) => {
-        this.setState({ friendsMoviesArray: res.data });
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+      axios.get('/api/user_movies/friendsMovies')
+        .then((res) => {
+          console.log(res);
+          const userMoviesSorted = _.groupBy(res.data, 'id');
+          console.log(userMoviesSorted);
+          this.setState({ friendsMoviesArray: userMoviesSorted });
+
+        })
+        .catch((err) => {
+          console.error(err);
+        });
 
       axios.get('/api/friends')
       .then((res) => {
         this.setState({ friends : res.data })
       })
       .then(() => {
-        this.state.friends.map((friend) => {
-          axios.get()
-        })
+        
       })
       .catch((err) => {
         console.error(err);
@@ -104,9 +106,12 @@ const Main = React.createClass({
         console.error(err);
       });
 
-    axios.get('/api/user_movies/friends')
+    axios.get('/api/user_movies/friendsMovies')
       .then((res) => {
-        this.setState({ friendsMoviesArray: res.data });
+        console.log(res);
+        const userMoviesSorted = _.orderBy(res, ['id'], ['asc']);
+        console.log(userMoviesSorted);
+        this.setState({ friendsMoviesArray: userMoviesSorted });
       })
       .catch((err) => {
         console.error(err);
