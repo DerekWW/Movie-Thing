@@ -156,7 +156,7 @@ const Main = React.createClass({
           pattern="/" exactly render={
           () => (
             this.props.isLoggedIn ? (
-              <Redirect to="/friends" />
+              <Redirect to="/home" />
             ) : (
           <Landing2
             checkIsLoggedIn={this.props.checkIsLoggedIn}
